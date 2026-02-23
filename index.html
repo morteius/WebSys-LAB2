@@ -1,92 +1,293 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Portfolio with Daily Blog</title>
+    <title>CJ & Elaine · Blog</title>
+    <meta name="color-scheme" content="light only">
+    
+    <!-- FONT POPPINS -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- ICONS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CUSTOM CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#blog">Daily Blog</a></li>
-            <li><a href="#aboutus">About Us</a></li>
-        </ul>
+
+    <!-- NAV BAR -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">LOGO
+            </a>
+            
+            <ul class="sidebar" id="sidebar">
+                <li class="close-btn" onclick="hideSidebar()">
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960" width="28px" fill="#fff">
+                            <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                        </svg>
+                    </a>
+                </li>
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#recent"><i class="fas fa-book"></i> Blog</a></li>
+            </ul>
+            
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="#recent">Blog</a></li>
+            </ul>
+            
+            <div class="menu-button" onclick="showSidebar()">
+                <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="#fff">
+                    <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/>
+                </svg>
+            </div>
+        </div>
     </nav>
 
-    <div>
-        <h1>Student Portfolio with Daily Blog</h1>
-        <p>Welcome to our student portfolio website where we document our daily life.</p>
-    </div>
-
-    <div>
-        <h2 id="aboutus">About Us</h2>
-        <p>This is the about us section of our portfolio. Here we will share information about ourselves, our goals, and
-            what we are working on.</p>
-
-        //CJ
-        <div id="cj-blog">
-            <img src="" alt="">
-            <h3>Charles James G. Mape</h3>
-            <p>Click to redirect to his blog - preview of blog entry.</p>
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-text animate-fade-in">
+                <h1 class="hero-title">hello, we're <span>CJ & Elaine</span></h1>
+                <p class="hero-subtitle">two friends sharing our daily lives, coding journey, and everything in between.</p>
+            </div>
+            <div class="hero-image animate-slide-in">
+                <img src="images/ellie_cj.JPG" alt="CJ and Elaine together">
+            </div>
         </div>
-        Name: Charles James G. Mape
-        Age: 20
-        Birthdate: December 18, 2005
-        Address: Zone 8, Granado Street, Bulan, Sorsogon
-        Hobbies:
-        Interests:
-        Goals:
-
-        //Ely
-        <div id="ely-blog">
-            <img src="" alt="">
-            <h3>Elaine L. Paras</h3>
-            <p>Click to redirect to her blog - preview of blog entry.</p>
+        
+        <!-- SCROLL INDICATOR -->
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
         </div>
-        Name: Elaine L. Paras
-        Age: 20
-        Birthdate: September 14, 2005
-        Address: Quirangay, Camalig, Albay
-        Hobbies: Volleyball, coloring, reading, watching films, running, listening to music, crossword puzzle
-        Interests: History, filmography, sports, journaling, travelling, automobiles, bikes, foreign languages,
-        investing, diy projects, fashion, arts
-        Goals:
-    </div>
+    </section>
 
-    <div>
-        <h2 id="blog">Daily Blog</h2>
-        <p>Here you can find our daily blog entries where we share our experiences, thoughts, and activities.</p>
-    </div>
+    <!-- PROFILES SECTION -->
+    <section class="profiles-section">
+        <div class="section-header">
+            <h2>meet the team</h2>
+            <p>click any button to explore our individual portfolios</p>
+        </div>
+        
+        <div class="profiles-grid">
+            <!-- ELAINE CARD -->
+            <div class="profile-card">
+                <div class="profile-header">
+                    <div class="profile-avatar">
+                        👩‍🎨
+                    </div>
+                    <h3>Elaine Paras</h3>
+                    <p class="profile-location"><i class="fas fa-map-marker-alt"></i> Camalig, Albay</p>
+                </div>
+                
+                <div class="profile-body">
+                    <p class="profile-bio">BS Information Technology student who loves volleyball, art, and reading.</p>
+                    
+                    <div class="profile-tags">
+                        <span class="tag">🏐 volleyball</span>
+                        <span class="tag">🎨 art</span>
+                        <span class="tag">📖 reading</span>
+                        <span class="tag">🎬 films</span>
+                        <span class="tag">🏃 running</span>
+                    </div>
+                </div>
+                
+                <div class="profile-footer">
+                    <a href="student1_elaine/main.html" class="btn-primary"><i class="fas fa-user"></i> Portfolio</a>
+                    <a href="student1_elaine/about.html" class="btn-secondary"><i class="fas fa-info-circle"></i> About</a>
+                    <a href="student1_elaine/blog/index.html" class="btn-secondary"><i class="fas fa-book-open"></i> Blog</a>
+                </div>
+            </div>
 
-    <div id="cj-blog">
-        <h3>Blog Entry - [Date]</h3>
-        <img src="" alt="">
-        <p>[Write your daily blog entry here. Share your thoughts, experiences, and activities of the day.]</p>
-    </div>
+            <!-- CJ CARD -->
+            <div class="profile-card">
+                <div class="profile-header">
+                    <div class="profile-avatar">
+                        👨‍💻
+                    </div>
+                    <h3>CJ Mape</h3>
+                    <p class="profile-location"><i class="fas fa-map-marker-alt"></i> Bulan, Sorsogon</p>
+                </div>
+                
+                <div class="profile-body">
+                    <p class="profile-bio">BS Information Technology passionate about sports, gaming, and music.</p>
+                    
+                    <div class="profile-tags">
+                        <span class="tag">🥊 sports</span>
+                        <span class="tag">🎨 art</span>
+                        <span class="tag">🎮 gaming</span>
+                        <span class="tag">📚 reading</span>
+                        <span class="tag">🎵 music</span>
+                    </div>
+                </div>
+                
+                <div class="profile-footer">
+                    <a href="student2_cj/main.html" class="btn-primary"><i class="fas fa-user"></i> Portfolio</a>
+                    <a href="student2_cj/about.html" class="btn-secondary"><i class="fas fa-info-circle"></i> About</a>
+                    <a href="student2_cj/blog/index.html" class="btn-secondary"><i class="fas fa-book-open"></i> Blog</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <div id="ely-blog">
-        <h3>Saturday Ganaps - February 21, 2026</h3>
-        <img src="" alt="">
-        <p>Saturday was such a wholesome day! After the morning class, we shared a big
-            lunch in the classroom where our professor even brought ice cream for dessert. After class, we checked out
-            the
-            Legazpi Art Pop Market. We didn't get to see everything, but it was still a highlight. CJ and I finished the
-            day by strolling through the mall and taking some cute photobooth pictures together.
-        </p>
+    <!-- RECENT POSTS SECTION -->
+    <section class="recent-section" id="recent">
+        <div class="section-header">
+            <h2>recent blog posts</h2>
+            <p>latest updates from both of us</p>
+        </div>
+        
+        <div class="recent-grid">
+            <!-- ELAINE POSTS -->
+            <div class="recent-group">
+                <h3><i class="fas fa-pen"></i> Elaine's Latest</h3>
+                <div class="recent-list">
+                    <a href="student1_elaine/blog/day1.html" class="recent-item">
+                        <div class="recent-info">
+                            <span class="recent-title">Saturday Ganaps</span>
+                            <span class="recent-date">Feb 21, 2026</span>
+                        </div>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    
+                    <a href="student1_elaine/blog/day2.html" class="recent-item">
+                        <div class="recent-info">
+                            <span class="recent-title">Casual Sunday</span>
+                            <span class="recent-date">Feb 22, 2026</span>
+                        </div>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- CJ POSTS -->
+            <div class="recent-group">
+                <h3><i class="fas fa-laptop-code"></i> CJ's Latest</h3>
+                <div class="recent-list">
+                    <a href="student2_cj/blog/day1.html" class="recent-item">
+                        <div class="recent-info">
+                            <span class="recent-title">Getting Started</span>
+                            <span class="recent-date">Feb 23, 2026</span>
+                        </div>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    
+                    <a href="student2_cj/blog/day2.html" class="recent-item">
+                        <div class="recent-info">
+                            <span class="recent-title">Learning Git</span>
+                            <span class="recent-date">Feb 24, 2026</span>
+                        </div>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <h3>Casual Sunday - February 22, 2026</h3>
-        <p>Sunday was a quiet and relaxing day. I woke up late and had a simple breakfast. I spent the day reviewing for
-            my upcoming quizzes.
-        </p>
-    </div>
+    <!-- STATS SECTION -->
+    <section class="stats-section">
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="stat-number">5+</div>
+                <div class="stat-label">Blog Posts</div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-number">2</div>
+                <div class="stat-label">Contributors</div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-number">Daily</div>
+                <div class="stat-label">Updates</div>
+            </div>
+        </div>
+    </section>
 
+    <!-- CALL TO ACTION -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>follow our journey</h2>
+            <p>new blog posts added daily. come back tomorrow for more updates!</p>
+            <div class="cta-buttons">
+                <a href="student1_elaine/blog/index.html" class="btn-primary btn-large">Elaine's Blog</a>
+                <a href="student2_cj/blog/index.html" class="btn-primary btn-large">CJ's Blog</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <h3>cj & elaine</h3>
+                <p>two students, two stories, one blog.</p>
+            </div>
+            
+            <div class="footer-social">
+                <h4>connect with us</h4>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h4>quick links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#recent">Blog</a></li>
+                    <li><a href="student1_elaine/main.html">Elaine</a></li>
+                    <li><a href="student2_cj/main.html">CJ</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 CJ & Elaine · duo project · all rights reserved</p>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script>
+        function showSidebar() {
+            document.getElementById('sidebar').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function hideSidebar() {
+            document.getElementById('sidebar').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        
+        // close sidebar when clicking outside
+        document.addEventListener('click', function(event) {
+            const sidebar = document.getElementById('sidebar');
+            const menuButton = document.querySelector('.menu-button');
+            
+            if (sidebar.classList.contains('active') && 
+                !sidebar.contains(event.target) && 
+                !menuButton.contains(event.target)) {
+                hideSidebar();
+            }
+        });
+        
+        // scroll indicator animation
+        window.addEventListener('scroll', function() {
+            const scrollIndicator = document.querySelector('.scroll-indicator');
+            if (window.scrollY > 100) {
+                scrollIndicator.style.opacity = '0';
+            } else {
+                scrollIndicator.style.opacity = '1';
+            }
+        });
+    </script>
 </body>
-
-<footer>
-    <p>&copy; 2026 Student Portfolio. All rights reserved.</p>
-</footer>
-
 </html>

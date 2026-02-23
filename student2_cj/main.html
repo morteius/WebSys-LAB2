@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CJ Mape · Portfolio</title>
+    <meta name="color-scheme" content="light only">
+    
+    <!-- FONT POPPINS -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- ICONS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CUSTOM CSS -->
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+    <!-- NAV BAR -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">cj & elaine</a>
+            
+            <ul class="sidebar" id="sidebar">
+                <li class="close-btn" onclick="hideSidebar()">
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960" width="28px" fill="#fff">
+                            <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                        </svg>
+                    </a>
+                </li>
+                <li><a href="../index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="main.html" class="active"><i class="fas fa-user"></i> My Portfolio</a></li>
+                <li><a href="about.html"><i class="fas fa-info-circle"></i> About Me</a></li>
+                <li><a href="blog/index.html"><i class="fas fa-book"></i> My Blog</a></li>
+                <li><a href="../student1_elaine/main.html"><i class="fas fa-user-friends"></i> Elaine's Portfolio</a></li>
+            </ul>
+            
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../student1_elaine/main.html">Elaine</a></li>
+                <li><a href="main.html" class="active">CJ</a></li>
+            </ul>
+            
+            <div class="menu-button" onclick="showSidebar()">
+                <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="#fff">
+                    <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/>
+                </svg>
+            </div>
+        </div>
+    </nav>
+
+    <!-- PROFILE HERO SECTION -->
+    <section class="profile-hero">
+        <div class="profile-hero-content">
+            <div class="profile-hero-avatar">
+                👨‍💻
+            </div>
+            <h1 class="profile-hero-name">Charles James G. Mape</h1>
+            <p class="profile-hero-tagline">BS Information Technology · 20 · Bulan, Sorsogon</p>
+            <div class="profile-hero-social">
+                <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUICK STATS -->
+    <section class="profile-stats">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-value">3+</div>
+                <div class="stat-label">Blog Posts</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">5</div>
+                <div class="stat-label">Hobbies</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">20</div>
+                <div class="stat-label">Years Old</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT PREVIEW SECTION -->
+    <section class="about-preview">
+        <div class="container">
+            <div class="section-header">
+                <h2>about me</h2>
+                <p>get to know me better</p>
+            </div>
+            
+            <div class="about-preview-grid">
+                <div class="about-preview-card">
+                    <i class="fas fa-quote-right"></i>
+                    <p class="about-quote">"passionate about coding, gaming, and documenting the journey along the way."</p>
+                </div>
+                
+                <div class="about-preview-buttons">
+                    <a href="about.html" class="btn-primary"><i class="fas fa-info-circle"></i> Read Full About Me</a>
+                    <a href="blog/index.html" class="btn-secondary"><i class="fas fa-book-open"></i> Browse My Blog</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LATEST BLOG POSTS -->
+    <section class="profile-blogs">
+        <div class="container">
+            <div class="section-header">
+                <h2>my latest posts</h2>
+                <p>recent entries from my daily blog</p>
+            </div>
+            
+            <div class="profile-blogs-grid">
+                <!-- BLOG CARD 1 -->
+                <div class="blog-card">
+                    <div class="blog-card-date">
+                        <i class="fas fa-calendar"></i> February 23, 2026
+                    </div>
+                    <h3 class="blog-card-title">Getting Started</h3>
+                    <p class="blog-card-excerpt">Today I learned about HTML structure and CSS styling. Excited to build more complex layouts and make our blog look amazing...</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag"><i class="fas fa-tag"></i> coding</span>
+                        <a href="blog/day1.html" class="blog-card-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- BLOG CARD 2 -->
+                <div class="blog-card">
+                    <div class="blog-card-date">
+                        <i class="fas fa-calendar"></i> February 24, 2026
+                    </div>
+                    <h3 class="blog-card-title">Learning Git</h3>
+                    <p class="blog-card-excerpt">Successfully created our repository and learned basic Git commands. Collaborating with Elaine went smoothly and we're making progress...</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag"><i class="fas fa-tag"></i> coding</span>
+                        <a href="blog/day2.html" class="blog-card-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- BLOG CARD 3 -->
+                <div class="blog-card">
+                    <div class="blog-card-date">
+                        <i class="fas fa-calendar"></i> February 25, 2026
+                    </div>
+                    <h3 class="blog-card-title">Baby Blue Theme</h3>
+                    <p class="blog-card-excerpt">Worked on the baby blue color scheme for our portfolio. The design is coming together nicely and looks modern and clean...</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag"><i class="fas fa-tag"></i> design</span>
+                        <a href="blog/day3.html" class="blog-card-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="center-button">
+                <a href="blog/index.html" class="btn-secondary btn-large">View All Posts <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERESTS PREVIEW -->
+    <section class="interests-preview">
+        <div class="container">
+            <div class="section-header">
+                <h2>things i love</h2>
+                <p>my hobbies and interests</p>
+            </div>
+            
+            <div class="interests-grid">
+                <div class="interest-item">
+                    <div class="interest-icon">🥊</div>
+                    <span>Sports</span>
+                </div>
+                <div class="interest-item">
+                    <div class="interest-icon">🎨</div>
+                    <span>Art</span>
+                </div>
+                <div class="interest-item">
+                    <div class="interest-icon">🎮</div>
+                    <span>Gaming</span>
+                </div>
+                <div class="interest-item">
+                    <div class="interest-icon">📚</div>
+                    <span>Reading</span>
+                </div>
+                <div class="interest-item">
+                    <div class="interest-icon">🎵</div>
+                    <span>Music</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <h3>CJ Mape</h3>
+                <p>coding, gaming, and everything in between.</p>
+            </div>
+            
+            <div class="footer-social">
+                <h4>connect with me</h4>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h4>quick links</h4>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="about.html">About Me</a></li>
+                    <li><a href="blog/index.html">My Blog</a></li>
+                    <li><a href="../student1_elaine/main.html">Elaine's Portfolio</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 CJ Mape · all rights reserved</p>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script>
+        function showSidebar() {
+            document.getElementById('sidebar').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function hideSidebar() {
+            document.getElementById('sidebar').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        
+        // close sidebar when clicking outside
+        document.addEventListener('click', function(event) {
+            const sidebar = document.getElementById('sidebar');
+            const menuButton = document.querySelector('.menu-button');
+            
+            if (sidebar.classList.contains('active') && 
+                !sidebar.contains(event.target) && 
+                !menuButton.contains(event.target)) {
+                hideSidebar();
+            }
+        });
+    </script>
+</body>
+</html>

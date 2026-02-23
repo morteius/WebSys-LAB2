@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Elaine · Paras</title>
+    <meta name="color-scheme" content="light only">
+    
+    <!-- FONT POPPINS -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- ICONS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CUSTOM CSS -->
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+    <!-- NAV BAR -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">cj & elaine</a>
+            
+            <ul class="sidebar" id="sidebar">
+                <li class="close-btn" onclick="hideSidebar()">
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960" width="28px" fill="#fff">
+                            <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                        </svg>
+                    </a>
+                </li>
+                <li><a href="../index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="main.html"><i class="fas fa-user"></i> My Portfolio</a></li>
+                <li><a href="about.html" class="active"><i class="fas fa-info-circle"></i> About Me</a></li>
+                <li><a href="blog/index.html"><i class="fas fa-book"></i> My Blog</a></li>
+                <li><a href="../student2_cj/main.html"><i class="fas fa-user-friends"></i> CJ's Portfolio</a></li>
+            </ul>
+            
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="main.html">Elaine</a></li>
+                <li><a href="../student2_cj/main.html">CJ</a></li>
+            </ul>
+            
+            <div class="menu-button" onclick="showSidebar()">
+                <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="#fff">
+                    <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/>
+                </svg>
+            </div>
+        </div>
+    </nav>
+
+    <!-- PAGE HEADER -->
+    <section class="page-header">
+        <div class="page-header-content">
+            <h1>about me</h1>
+            <p>get to know elaine beyond the blog</p>
+        </div>
+    </section>
+
+    <!-- ABOUT CONTENT -->
+    <section class="about-section">
+        <div class="container">
+            <div class="about-grid">
+                <!-- LEFT COLUMN - PERSONAL INFO -->
+                <div class="about-card">
+                    <h2><i class="fas fa-user-circle"></i> personal information</h2>
+                    
+                    <div class="info-list">
+                        <div class="info-item">
+                            <span class="info-label">full name</span>
+                            <span class="info-value">Elaine L. Paras</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">age</span>
+                            <span class="info-value">20 years old</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">birthdate</span>
+                            <span class="info-value">September 14, 2005</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">address</span>
+                            <span class="info-value">Quirangay, Camalig, Albay</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">course</span>
+                            <span class="info-value">BS Information Technology</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- RIGHT COLUMN - HOBBIES -->
+                <div class="about-card">
+                    <h2><i class="fas fa-heart"></i> hobbies & interests</h2>
+                    
+                    <div class="hobbies-grid">
+                        <div class="hobby-item">
+                            <span class="hobby-icon">🏐</span>
+                            <span>Volleyball</span>
+                        </div>
+                        <div class="hobby-item">
+                            <span class="hobby-icon">🎨</span>
+                            <span>Coloring</span>
+                        </div>
+                        <div class="hobby-item">
+                            <span class="hobby-icon">📖</span>
+                            <span>Reading</span>
+                        </div>
+                        <div class="hobby-item">
+                            <span class="hobby-icon">🎬</span>
+                            <span>Watching Films</span>
+                        </div>
+                        <div class="hobby-item">
+                            <span class="hobby-icon">🏃</span>
+                            <span>Running</span>
+                        </div>
+                        <div class="hobby-item">
+                            <span class="hobby-icon">🎵</span>
+                            <span>Listening to Music</span>
+                        </div>
+                        <div class="hobby-item">
+                            <span class="hobby-icon">🧩</span>
+                            <span>Crossword Puzzle</span>
+                        </div>
+                        <div class="hobby-item">
+                            <span class="hobby-icon">📝</span>
+                            <span>Journaling</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- INTERESTS SECTION -->
+            <div class="about-card interests-card">
+                <h2><i class="fas fa-star"></i> things i'm interested in</h2>
+                
+                <div class="interests-tags">
+                    <span class="interest-tag">History</span>
+                    <span class="interest-tag">Filmography</span>
+                    <span class="interest-tag">Sports</span>
+                    <span class="interest-tag">Journaling</span>
+                    <span class="interest-tag">Travelling</span>
+                    <span class="interest-tag">Automobiles</span>
+                    <span class="interest-tag">Bikes</span>
+                    <span class="interest-tag">Foreign Languages</span>
+                    <span class="interest-tag">Investing</span>
+                    <span class="interest-tag">DIY Projects</span>
+                    <span class="interest-tag">Fashion</span>
+                    <span class="interest-tag">Arts</span>
+                </div>
+            </div>
+            
+            <!-- GOALS SECTION -->
+            <div class="about-card goals-card">
+                <h2><i class="fas fa-bullseye"></i> goals & aspirations</h2>
+                
+                <div class="goals-list">
+                    <div class="goal-item">
+                        <i class="fas fa-check-circle"></i>
+                        <p>graduate with flying colors and gain valuable skills in IT</p>
+                    </div>
+                    <div class="goal-item">
+                        <i class="fas fa-check-circle"></i>
+                        <p>travel to different countries and experience diverse cultures</p>
+                    </div>
+                    <div class="goal-item">
+                        <i class="fas fa-check-circle"></i>
+                        <p>become proficient in multiple foreign languages</p>
+                    </div>
+                    <div class="goal-item">
+                        <i class="fas fa-check-circle"></i>
+                        <p>start a creative project combining art and technology</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- BACK BUTTON -->
+            <div class="center-button">
+                <a href="main.html" class="btn-secondary btn-large"><i class="fas fa-arrow-left"></i> back to portfolio</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <h3>Elaine Paras</h3>
+                <p>writing my story, one blog post at a time.</p>
+            </div>
+            
+            <div class="footer-social">
+                <h4>connect with me</h4>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h4>quick links</h4>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="main.html">Portfolio</a></li>
+                    <li><a href="blog/index.html">My Blog</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 Elaine Paras · all rights reserved</p>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script>
+        function showSidebar() {
+            document.getElementById('sidebar').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function hideSidebar() {
+            document.getElementById('sidebar').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        
+        // close sidebar when clicking outside
+        document.addEventListener('click', function(event) {
+            const sidebar = document.getElementById('sidebar');
+            const menuButton = document.querySelector('.menu-button');
+            
+            if (sidebar.classList.contains('active') && 
+                !sidebar.contains(event.target) && 
+                !menuButton.contains(event.target)) {
+                hideSidebar();
+            }
+        });
+    </script>
+</body>
+</html>
