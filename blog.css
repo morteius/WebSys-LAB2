@@ -137,6 +137,67 @@
     line-height: 1.6 !important;
 }
 
+/* ===== UNIVERSAL IMAGE CARDS ===== */
+.blog-image-card {
+    background: white;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md, 0 10px 30px rgba(95, 158, 160, 0.15));
+    margin: 2.5rem 0;
+    border: 1px solid var(--baby-200);
+    transition: var(--transition);
+}
+
+.blog-image-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg, 0 15px 40px rgba(95, 158, 160, 0.25));
+    border-color: var(--baby-300);
+}
+
+.blog-image-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+}
+
+.blog-image-caption {
+    padding: 1rem 1.5rem;
+    background: var(--baby-100);
+    color: var(--baby-500);
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    border-top: 1px solid var(--baby-200);
+}
+
+.blog-image-caption i {
+    color: var(--baby-300);
+    font-size: 1.2rem;
+}
+
+/* IMAGE GRID FOR MULTIPLE IMAGES */
+.image-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin: 2.5rem 0;
+}
+
+.image-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin: 2.5rem 0;
+}
+
+.image-grid-2 .blog-image-card,
+.image-grid-3 .blog-image-card {
+    margin: 0;
+}
+
 /* BLOG NAVIGATION */
 .blog-navigation {
     display: flex;
@@ -167,7 +228,7 @@
     font-size: 0.9rem;
 }
 
-/* BLOG POST IMAGES (IF NEEDED LATER) */
+/* LEGACY STYLES - KEPT FOR BACKWARDS COMPATIBILITY */
 .blog-image {
     margin: 2.5rem 0;
     border-radius: 20px;
@@ -239,6 +300,13 @@
         width: 100%;
         justify-content: center;
     }
+    
+    /* RESPONSIVE IMAGE GRIDS */
+    .image-grid-2,
+    .image-grid-3 {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -252,5 +320,11 @@
     
     .blog-post-body h2 {
         font-size: 1.5rem;
+    }
+    
+    .blog-image-caption {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.3rem;
     }
 }
