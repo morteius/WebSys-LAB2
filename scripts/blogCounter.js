@@ -2,10 +2,16 @@ async function countBlogPosts() {
     const cjPosts = [];
     const elainePosts = [];
     
+    // Get the base path for GitHub Pages
+    const basePath = window.location.pathname.includes('/student2_cj/') || 
+                     window.location.pathname.includes('/student1_elaine/') 
+                     ? '../' : '';
+    
     let day = 1;
     while (true) {
         try {
-            const response = await fetch(`/student2_cj/blog/day${day}.html`, { 
+            // Don't use leading slash - use relative paths
+            const response = await fetch(`student2_cj/blog/day${day}.html`, { 
                 method: 'HEAD',
                 cache: 'no-cache'
             });
@@ -24,7 +30,7 @@ async function countBlogPosts() {
     day = 1;
     while (true) {
         try {
-            const response = await fetch(`/student1_elaine/blog/day${day}.html`, { 
+            const response = await fetch(`student1_elaine/blog/day${day}.html`, { 
                 method: 'HEAD',
                 cache: 'no-cache'
             });
