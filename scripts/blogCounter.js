@@ -2,21 +2,26 @@ async function countBlogPosts() {
     const cjPosts = [];
     const elainePosts = [];
     
-    // Get the base path for GitHub Pages
-    const basePath = window.location.pathname.includes('/student2_cj/') || 
-                     window.location.pathname.includes('/student1_elaine/') 
-                     ? '../' : '';
+    const baseUrl = window.location.origin + window.location.pathname.split('/').slice(0, -2).join('/');
     
     let day = 1;
     while (true) {
         try {
-            // Don't use leading slash - use relative paths
-            const response = await fetch(`student2_cj/blog/day${day}.html`, { 
+            let response = null;
+            
+            response = await fetch(`student2_cj/blog/day${day}.html`, { 
                 method: 'HEAD',
                 cache: 'no-cache'
             });
             
-            if (response.ok) {
+            if (!response.ok) {
+                response = await fetch(`${baseUrl}/student2_cj/blog/day${day}.html`, { 
+                    method: 'HEAD',
+                    cache: 'no-cache'
+                });
+            }
+            
+            if (response && response.ok) {
                 cjPosts.push(`day${day}.html`);
                 day++;
             } else {
@@ -30,12 +35,21 @@ async function countBlogPosts() {
     day = 1;
     while (true) {
         try {
-            const response = await fetch(`student1_elaine/blog/day${day}.html`, { 
+            let response = null;
+            
+            response = await fetch(`student1_elaine/blog/day${day}.html`, { 
                 method: 'HEAD',
                 cache: 'no-cache'
             });
             
-            if (response.ok) {
+            if (!response.ok) {
+                response = await fetch(`${baseUrl}/student1_elaine/blog/day${day}.html`, { 
+                    method: 'HEAD',
+                    cache: 'no-cache'
+                });
+            }
+            
+            if (response && response.ok) {
                 elainePosts.push(`day${day}.html`);
                 day++;
             } else {
@@ -56,6 +70,7 @@ async function countBlogPosts() {
 async function updateAllCounters() {
     try {
         const counts = await countBlogPosts();
+        console.log('Blog counts:', counts);
         
         const statCards = document.querySelectorAll('.stats-section .stat-card');
         statCards.forEach(card => {
@@ -107,11 +122,16 @@ async function updateAllCounters() {
         });
         
     } catch (error) {
+        console.error('Counter error:', error);
     }
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    setTimeout(updateAllCounters, 100);
-});
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(updateAllCounters, 500);
+    });
+} else {
+    setTimeout(updateAllCounters, 500);
+}
 
 window.forceRecount = updateAllCounters;
