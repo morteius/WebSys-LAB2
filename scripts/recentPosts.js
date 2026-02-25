@@ -3,9 +3,8 @@ console.log('📝 RECENT POSTS LOADED');
 async function updateRecentPosts() {
     console.log('🔄 UPDATING...');
     
-    const pathParts = window.location.pathname.split('/');
-    const repoName = pathParts[1] === 'student2_cj' || pathParts[1] === 'student1_elaine' ? '' : pathParts[1];
-    const baseUrl = repoName ? `/${repoName}` : '';
+    // FIX: Always use WebSys-LAB2 in the path for GitHub Pages
+    const baseUrl = '/WebSys-LAB2';
     
     const isHome = !window.location.pathname.includes('student2_cj') && !window.location.pathname.includes('student1_elaine');
     const isCJ = window.location.pathname.includes('student2_cj');
@@ -14,33 +13,42 @@ async function updateRecentPosts() {
     const cjPosts = [];
     const elainePosts = [];
     
+    // GET CJ'S POSTS
     for (let day = 1; day <= 10; day++) {
         try {
-            const res = await fetch(`${baseUrl}/student2_cj/blog/day${day}.html`);
+            const url = `${baseUrl}/student2_cj/blog/day${day}.html`;
+            const res = await fetch(url);
             if (!res.ok) break;
             const html = await res.text();
             const title = (html.match(/<h1[^>]*>Day \d+: (.*?)<\/h1>/) || [,`Day ${day}`])[1].trim();
             const excerpt = (html.match(/<p class="blog-intro"[^>]*>(.*?)<\/p>/) || [, ''])[1].replace(/<[^>]*>/g, '').substring(0, 100) + '...';
             const date = (html.match(/<span><i class="fas fa-calendar"><\/i> (.*?)<\/span>/) || [, `February ${19+day}, 2026`])[1].trim();
             cjPosts.push({ day, title, excerpt, date });
+            console.log(`✅ Found CJ day${day}`);
         } catch (e) { break; }
     }
     
+    // GET ELAINE'S POSTS
     for (let day = 1; day <= 10; day++) {
         try {
-            const res = await fetch(`${baseUrl}/student1_elaine/blog/day${day}.html`);
+            const url = `${baseUrl}/student1_elaine/blog/day${day}.html`;
+            const res = await fetch(url);
             if (!res.ok) break;
             const html = await res.text();
             const title = (html.match(/<h1[^>]*>Day \d+: (.*?)<\/h1>/) || [,`Day ${day}`])[1].trim();
             const excerpt = (html.match(/<p class="blog-intro"[^>]*>(.*?)<\/p>/) || [, ''])[1].replace(/<[^>]*>/g, '').substring(0, 100) + '...';
             const date = (html.match(/<span><i class="fas fa-calendar"><\/i> (.*?)<\/span>/) || [, `February ${19+day}, 2026`])[1].trim();
             elainePosts.push({ day, title, excerpt, date });
+            console.log(`✅ Found Elaine day${day}`);
         } catch (e) { break; }
     }
     
     cjPosts.sort((a,b) => b.day - a.day);
     elainePosts.sort((a,b) => b.day - a.day);
     
+    console.log(`📊 Found ${cjPosts.length} CJ, ${elainePosts.length} Elaine`);
+    
+    // UPDATE HOMEPAGE
     if (isHome) {
         const elaineList = document.querySelector('.recent-group:first-child .recent-list');
         if (elaineList) {
@@ -59,6 +67,7 @@ async function updateRecentPosts() {
         }
     }
     
+    // UPDATE CJ'S PAGE
     if (isCJ) {
         const grid = document.querySelector('.profile-blogs-grid');
         if (grid) {
@@ -69,6 +78,7 @@ async function updateRecentPosts() {
         }
     }
     
+    // UPDATE ELAINE'S PAGE
     if (isElaine) {
         const grid = document.querySelector('.profile-blogs-grid');
         if (grid) {
@@ -80,6 +90,7 @@ async function updateRecentPosts() {
     }
 }
 
+// RUN AFTER PAGE LOADS
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => setTimeout(updateRecentPosts, 300));
 } else {
