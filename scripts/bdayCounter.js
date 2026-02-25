@@ -50,7 +50,7 @@ function updateBirthdayCounters() {
             el.textContent = elaineDays;
         });
         
-        // Update ages
+        // update ages
         const elaineAge = calculateAge(9, 14, 2005);
         const cjAge = calculateAge(12, 18, 2005);
         

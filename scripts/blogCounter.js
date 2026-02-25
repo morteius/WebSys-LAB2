@@ -2,20 +2,17 @@ async function countBlogPosts() {
     const cjPosts = [];
     const elainePosts = [];
     
-    // Get the repository name from the current URL
     const pathParts = window.location.pathname.split('/');
-    const repoName = pathParts[1]; // This will be 'cj-elaine-blog'
+    const repoName = pathParts[1];
     
     let day = 1;
     while (true) {
         try {
-            // Try with repo name first (GitHub Pages)
             let response = await fetch(`/${repoName}/student2_cj/blog/day${day}.html`, { 
                 method: 'HEAD',
                 cache: 'no-cache'
             });
             
-            // If that fails, try without repo name (local)
             if (!response.ok) {
                 response = await fetch(`student2_cj/blog/day${day}.html`, { 
                     method: 'HEAD',
