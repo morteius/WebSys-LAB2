@@ -1,0 +1,42 @@
+name: UPDATE GALLERY LIST
+
+on:
+  push:
+    paths:
+      - 'images/gallery/**'
+
+jobs:
+  generate-list:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      
+    steps:
+      - name: CHECKOUT REPOSITORY
+        uses: actions/checkout@v3
+
+      - name: GENERATE IMAGE LIST
+        run: |
+          # CREATE THE JAVASCRIPT FILE
+          echo "// AUTO-GENERATED - DO NOT EDIT" > scripts/image-list.js
+          echo "const galleryImages = [" >> scripts/image-list.js
+          
+          # LOOP THROUGH ALL IMAGES IN THE GALLERY FOLDER
+          for file in images/gallery/*.*; do
+            if [ -f "$file" ]; then
+              filename=$(basename "$file")
+              echo "  '$filename'," >> scripts/image-list.js
+            fi
+          done
+          
+          echo "];" >> scripts/image-list.js
+          echo "" >> scripts/image-list.js
+          echo "// TOTAL: $(ls -1 images/gallery/*.* 2>/dev/null | wc -l) IMAGES" >> scripts/image-list.js
+
+      - name: COMMIT AND PUSH
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add scripts/image-list.js
+          git diff --quiet && git diff --staged --quiet || git commit -m "🔄 AUTO-UPDATE GALLERY LIST"
+          git push
