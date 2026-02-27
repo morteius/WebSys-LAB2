@@ -21,10 +21,7 @@ async function loadGallery() {
         
         
         const commonNames = [
-            'day1', 'day2', 'day3', 'day4', 'day5', 'day6',
-            'ellie_cj', 'babyEllie', 'babyCj', 'cj', 'elaine',
-            'lunch', 'photobooth', 'swimming', 'pancit', 'icecream',
-            'group', 'market'
+            'day'
         ];
         
         const imageFiles = [];
