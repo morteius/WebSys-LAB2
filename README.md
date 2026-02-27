@@ -86,12 +86,12 @@ Two students documenting their daily lives, coding journey, and everything in be
   
   | Color | Hex | Usage |
   |-------|-----|-------|
-  | <img src="https://via.placeholder.com/20/89c4f4/89c4f4?text=+" /> Baby Blue | `#89c4f4` | Buttons, accents, hover states |
-  | <img src="https://via.placeholder.com/20/5f9ea0/5f9ea0?text=+" /> Baby Blue Dark | `#5f9ea0` | Secondary accents |
-  | <img src="https://via.placeholder.com/20/b8d9f5/b8d9f5?text=+" /> Baby Blue Light | `#b8d9f5` | Borders, dividers |
-  | <img src="https://via.placeholder.com/20/e6f0fa/e6f0fa?text=+" /> Baby Blue BG | `#e6f0fa` | Background gradient |
-  | <img src="https://via.placeholder.com/20/2c3e50/2c3e50?text=+" /> Text Dark | `#2c3e50` | Main text |
-  | <img src="https://via.placeholder.com/20/ffffff/ffffff?text=+" /> White | `#ffffff` | Cards, contrast |
+  | <img src="https://via.placeholder.com/20/89c4f4/89c4f4?text=+" width="20" height="20" style="border-radius: 4px;" /> Baby Blue | `#89c4f4` | Buttons, accents, hover states |
+  | <img src="https://via.placeholder.com/20/5f9ea0/5f9ea0?text=+" width="20" height="20" style="border-radius: 4px;" /> Baby Blue Dark | `#5f9ea0` | Secondary accents |
+  | <img src="https://via.placeholder.com/20/b8d9f5/b8d9f5?text=+" width="20" height="20" style="border-radius: 4px;" /> Baby Blue Light | `#b8d9f5` | Borders, dividers |
+  | <img src="https://via.placeholder.com/20/e6f0fa/e6f0fa?text=+" width="20" height="20" style="border-radius: 4px;" /> Baby Blue BG | `#e6f0fa` | Background gradient |
+  | <img src="https://via.placeholder.com/20/2c3e50/2c3e50?text=+" width="20" height="20" style="border-radius: 4px;" /> Text Dark | `#2c3e50` | Main text |
+  | <img src="https://via.placeholder.com/20/ffffff/ffffff?text=+" width="20" height="20" style="border-radius: 4px;" /> White | `#ffffff` | Cards, contrast |
 
 </div>
 
