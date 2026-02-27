@@ -136,6 +136,49 @@
     animation: spin 1.5s linear infinite;
 }
 
+.archive-search-container {
+    max-width: 900px;
+    margin: 2rem auto 1rem;
+    padding: 0 2rem;
+}
+
+.archive-search {
+    position: relative;
+    width: 100%;
+}
+
+.archive-search i {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--baby-300);
+    font-size: 1rem;
+}
+
+.archive-search input {
+    width: 100%;
+    padding: 1rem 1rem 1rem 2.5rem;
+    border: 1px solid var(--baby-200);
+    border-radius: 50px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    background: white;
+    box-shadow: var(--shadow-sm);
+}
+
+.archive-search input:focus {
+    outline: none;
+    border-color: var(--baby-300);
+    box-shadow: 0 0 0 3px rgba(137,196,244,0.2);
+}
+
+@media (max-width: 768px) {
+    .archive-search-container {
+        padding: 0 1.5rem;
+    }
+}
+
 @keyframes spin {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }

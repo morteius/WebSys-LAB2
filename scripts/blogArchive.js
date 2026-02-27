@@ -1,6 +1,7 @@
 console.log('📚 BLOG ARCHIVE LOADED');
 
 let currentPosts = [];
+let filteredPosts = [];
 
 async function fetchBlogPost(student, day) {
     try {
@@ -23,7 +24,6 @@ async function fetchBlogPost(student, day) {
         if (dateMatch) {
             date = dateMatch[1].trim();
         } else {
-            // FALLBACK DATE
             const startDate = new Date(2026, 1, 20);
             startDate.setDate(startDate.getDate() + (day - 1));
             date = startDate.toLocaleDateString('en-US', { 
@@ -31,23 +31,10 @@ async function fetchBlogPost(student, day) {
             });
         }
         
-        // EXTRACT EXCERPT
-        const introMatch = html.match(/<p class="blog-intro"[^>]*>(.*?)<\/p>/s);
-        let excerpt = introMatch ? introMatch[1].replace(/<[^>]*>/g, '').trim() : '';
-        if (excerpt.length > 120) {
-            excerpt = excerpt.substring(0, 120) + '...';
-        }
-        
-        // EXTRACT TAGS
-        const tagsMatch = html.match(/<span><i class="fas fa-tag"><\/i> (.*?)<\/span>/);
-        const tags = tagsMatch ? tagsMatch[1].split(',').map(t => t.trim()) : ['personal'];
-        
         return {
             day,
             title,
             date,
-            excerpt,
-            tags,
             url: `${baseUrl}/${studentPath}/blog/day${day}.html`
         };
     } catch (error) {
@@ -56,99 +43,111 @@ async function fetchBlogPost(student, day) {
 }
 
 async function loadBlogArchive(person) {
-    console.log(`🔄 LOADING ${person.toUpperCase()} BLOG ARCHIVE...`);
+    console.log(`🔄 SCANNING ${person.toUpperCase()} BLOG ARCHIVE...`);
     
-    const archiveGrid = document.getElementById('archiveGrid');
-    const statsDiv = document.getElementById('archiveStats');
+    const archiveList = document.getElementById('archiveList');
+    const postCountSpan = document.getElementById('postCount');
+    const latestDateSpan = document.getElementById('latestDate');
     
-    if (!archiveGrid) return;
+    if (!archiveList) return;
     
-    archiveGrid.innerHTML = '<div class="archive-loading"><i class="fas fa-spinner fa-spin"></i><p>LOADING POSTS...</p></div>';
+    archiveList.innerHTML = '<div class="archive-loading"><i class="fas fa-spinner fa-spin"></i><p>SCANNING MEMORIES...</p></div>';
     
     try {
         currentPosts = [];
+        let day = 1;
+        let consecutiveMisses = 0;
+        const MAX_MISSES = 3; // STOP AFTER 3 MISSES IN A ROW
         
-        // SCAN UP TO 50 DAYS
-        for (let day = 1; day <= 50; day++) {
+        // SCAN FOREVER UNTIL WE FIND 3 MISSES IN A ROW
+        while (consecutiveMisses < MAX_MISSES) {
             const post = await fetchBlogPost(person, day);
             if (post) {
                 currentPosts.push(post);
                 console.log(`✅ FOUND DAY ${day}`);
+                consecutiveMisses = 0; // RESET MISS COUNTER
             } else {
-                if (day > 1) break;
+                consecutiveMisses++;
+                console.log(`❌ MISSING DAY ${day} (${consecutiveMisses}/${MAX_MISSES})`);
             }
+            day++;
+            
+            // SAFETY BREAK AFTER 9999 DAYS (ABOUT 27 YEARS)
+            if (day > 9999999) break;
         }
         
-        // SORT BY DAY (NEWEST FIRST - HIGHEST DAY NUMBER)
+        // SORT BY DAY (NEWEST FIRST)
         currentPosts.sort((a, b) => b.day - a.day);
+        filteredPosts = [...currentPosts];
         
         // UPDATE STATS
-        if (statsDiv) {
-            const totalPosts = currentPosts.length;
-            const latestDate = currentPosts.length > 0 ? currentPosts[0].date : 'N/A';
-            statsDiv.innerHTML = `
-                <div class="stat-badge">
-                    <i class="fas fa-book-open"></i>
-                    <span>${totalPosts} POSTS</span>
-                </div>
-                <div class="stat-badge">
-                    <i class="fas fa-calendar"></i>
-                    <span>LATEST: ${latestDate}</span>
-                </div>
-            `;
+        if (postCountSpan) {
+            postCountSpan.textContent = currentPosts.length;
+        }
+        if (latestDateSpan && currentPosts.length > 0) {
+            latestDateSpan.textContent = currentPosts[0].date;
         }
         
-        renderArchive();
+        renderArchiveList();
         
     } catch (error) {
-        archiveGrid.innerHTML = `<div class="archive-loading"><i class="fas fa-exclamation-circle"></i><p>ERROR LOADING POSTS</p></div>`;
+        archiveList.innerHTML = `<div class="archive-loading"><i class="fas fa-exclamation-circle"></i><p>ERROR LOADING POSTS</p></div>`;
     }
 }
 
-function renderArchive() {
-    const archiveGrid = document.getElementById('archiveGrid');
-    if (!archiveGrid) return;
+function renderArchiveList() {
+    const archiveList = document.getElementById('archiveList');
+    if (!archiveList) return;
     
-    if (currentPosts.length === 0) {
-        archiveGrid.innerHTML = `<div class="archive-loading"><i class="fas fa-book-open"></i><p>NO POSTS YET</p></div>`;
+    if (filteredPosts.length === 0) {
+        archiveList.innerHTML = `<div class="archive-loading"><i class="fas fa-book-open"></i><p>NO POSTS YET</p></div>`;
         return;
     }
     
-    archiveGrid.innerHTML = '';
+    archiveList.innerHTML = '';
     
-    currentPosts.forEach(post => {
-        const card = document.createElement('div');
-        card.className = 'archive-card';
+    filteredPosts.forEach(post => {
+        const item = document.createElement('a');
+        item.href = post.url;
+        item.className = 'archive-list-item';
         
-        // FORMAT TAGS
-        const tagsHtml = post.tags.map(tag => 
-            `<span class="archive-tag">${tag}</span>`
-        ).join('');
-        
-        card.innerHTML = `
-            <div class="archive-card-header">
-                <div class="archive-day">${post.day}</div>
-                <div>
-                    <div class="archive-date"><i class="fas fa-calendar"></i> ${post.date}</div>
+        item.innerHTML = `
+            <div class="archive-day-badge">${post.day}</div>
+            <div class="archive-item-content">
+                <div class="archive-item-title">Day ${post.day}: ${post.title}</div>
+                <div class="archive-item-meta">
+                    <span><i class="fas fa-calendar"></i> ${post.date}</span>
                 </div>
             </div>
-            <div class="archive-card-body">
-                <h3 class="archive-title">${post.title}</h3>
-                <p class="archive-excerpt">${post.excerpt}</p>
-                <div class="archive-tags">
-                    ${tagsHtml}
-                </div>
-            </div>
-            <div class="archive-card-footer">
-                <a href="${post.url}" class="archive-read-btn">
-                    READ DAY ${post.day} <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
+            <div class="archive-item-arrow"><i class="fas fa-chevron-right"></i></div>
         `;
         
-        archiveGrid.appendChild(card);
+        archiveList.appendChild(item);
+    });
+}
+
+// SEARCH FUNCTIONALITY
+function setupSearch() {
+    const searchInput = document.getElementById('searchPosts');
+    if (!searchInput) return;
+    
+    searchInput.addEventListener('input', (e) => {
+        const term = e.target.value.toLowerCase().trim();
+        
+        if (term === '') {
+            filteredPosts = [...currentPosts];
+        } else {
+            filteredPosts = currentPosts.filter(post => 
+                post.title.toLowerCase().includes(term) ||
+                `day ${post.day}`.includes(term) ||
+                post.date.toLowerCase().includes(term)
+            );
+        }
+        
+        renderArchiveList();
     });
 }
 
 // MAKE AVAILABLE GLOBALLY
 window.loadBlogArchive = loadBlogArchive;
+window.setupSearch = setupSearch;

@@ -53,10 +53,18 @@
 
     <div class="archive-header-simple">
         <h1>Elaine's Blog Archive</h1>
-        <p>all my stories, in one place</p>
+        <p>every moment, every memory</p>
         <div class="archive-stats-simple" id="archiveStats">
             <span><i class="fas fa-book-open"></i> <span id="postCount">0</span> posts</span>
-            <span><i class="fas fa-calendar"></i> est. Feb 2026</span>
+            <span><i class="fas fa-calendar"></i> latest: <span id="latestDate">—</span></span>
+        </div>
+    </div>
+
+    <!-- SEARCH BAR -->
+    <div class="archive-search-container">
+        <div class="archive-search">
+            <i class="fas fa-search"></i>
+            <input type="text" id="searchPosts" placeholder="Search by title, day, or date...">
         </div>
     </div>
 
@@ -65,10 +73,11 @@
         <div class="archive-list" id="archiveList">
             <div class="archive-loading">
                 <i class="fas fa-spinner fa-spin"></i>
-                <p>LOADING POSTS...</p>
+                <p>SCANNING MEMORIES...</p>
             </div>
         </div>
     </div>
+
 
     <!-- FOOTER -->
     <footer class="footer">
@@ -108,7 +117,11 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             if (typeof loadBlogArchive === 'function') {
-                loadBlogArchive('elaine');
+                loadBlogArchive('elaine').then(() => {
+                    if (typeof setupSearch === 'function') {
+                        setupSearch();
+                    }
+                });
             }
         });
     </script>
