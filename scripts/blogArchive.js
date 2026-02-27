@@ -14,11 +14,9 @@ async function fetchBlogPost(student, day) {
         
         const html = await response.text();
         
-        // EXTRACT TITLE
         const titleMatch = html.match(/<h1[^>]*>Day \d+: (.*?)<\/h1>/);
         const title = titleMatch ? titleMatch[1].trim() : `Day ${day}`;
         
-        // EXTRACT DATE
         const dateMatch = html.match(/<span><i class="fas fa-calendar"><\/i> (.*?)<\/span>/);
         let date = 'UNKNOWN';
         if (dateMatch) {
@@ -57,35 +55,32 @@ async function loadBlogArchive(person) {
         currentPosts = [];
         let day = 1;
         let consecutiveMisses = 0;
-        const MAX_MISSES = 3; // STOP AFTER 3 MISSES IN A ROW
+        const MAX_MISSES = 3;
         
-        // SCAN FOREVER UNTIL WE FIND 3 MISSES IN A ROW
         while (consecutiveMisses < MAX_MISSES) {
             const post = await fetchBlogPost(person, day);
             if (post) {
                 currentPosts.push(post);
                 console.log(`✅ FOUND DAY ${day}`);
-                consecutiveMisses = 0; // RESET MISS COUNTER
+                consecutiveMisses = 0;
             } else {
                 consecutiveMisses++;
                 console.log(`❌ MISSING DAY ${day} (${consecutiveMisses}/${MAX_MISSES})`);
             }
             day++;
             
-            // SAFETY BREAK AFTER 9999 DAYS (ABOUT 27 YEARS)
-            if (day > 9999999) break;
+            if (day > 9999) break;
         }
         
-        // SORT BY DAY (NEWEST FIRST)
-        currentPosts.sort((a, b) => b.day - a.day);
+        // SORT BY DAY (ASCENDING - 1,2,3,4...)
+        currentPosts.sort((a, b) => a.day - b.day);
         filteredPosts = [...currentPosts];
         
-        // UPDATE STATS
         if (postCountSpan) {
             postCountSpan.textContent = currentPosts.length;
         }
         if (latestDateSpan && currentPosts.length > 0) {
-            latestDateSpan.textContent = currentPosts[0].date;
+            latestDateSpan.textContent = currentPosts[currentPosts.length - 1].date;
         }
         
         renderArchiveList();
@@ -126,7 +121,6 @@ function renderArchiveList() {
     });
 }
 
-// SEARCH FUNCTIONALITY
 function setupSearch() {
     const searchInput = document.getElementById('searchPosts');
     if (!searchInput) return;
@@ -148,6 +142,5 @@ function setupSearch() {
     });
 }
 
-// MAKE AVAILABLE GLOBALLY
 window.loadBlogArchive = loadBlogArchive;
 window.setupSearch = setupSearch;
