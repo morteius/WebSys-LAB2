@@ -4,9 +4,21 @@ let currentImages = [];
 let filteredImages = [];
 let currentIndex = 0;
 
+// WAIT FOR IMAGE LIST TO LOAD
+function waitForImageList() {
+    return new Promise((resolve) => {
+        if (typeof galleryImages !== 'undefined') {
+            resolve();
+        } else {
+            // CHECK AGAIN IN 100ms
+            setTimeout(() => waitForImageList().then(resolve), 100);
+        }
+    });
+}
+
 // LOAD IMAGES FROM AUTO-GENERATED LIST
 async function loadGallery() {
-    console.log('🔄 LOADING GALLERY FROM IMAGE LIST...');
+    console.log('🔄 WAITING FOR IMAGE LIST...');
     
     const galleryGrid = document.getElementById('galleryGrid');
     if (!galleryGrid) return;
@@ -14,11 +26,15 @@ async function loadGallery() {
     galleryGrid.innerHTML = '<div class="gallery-loading"><i class="fas fa-spinner fa-spin"></i><p>LOADING MEMORIES...</p></div>';
     
     try {
+        // WAIT FOR image-list.js TO LOAD
+        await waitForImageList();
+        
+        console.log('✅ IMAGE LIST FOUND!', galleryImages);
+        
         const baseUrl = '/WebSys-LAB2';
         
-        // USE THE AUTO-GENERATED IMAGE LIST
-        if (typeof galleryImages === 'undefined') {
-            galleryGrid.innerHTML = `<div class="gallery-empty"><i class="fas fa-camera"></i><h3>IMAGE LIST NOT FOUND</h3><p>WAITING FOR GITHUB ACTION TO RUN...</p></div>`;
+        if (!galleryImages || galleryImages.length === 0) {
+            galleryGrid.innerHTML = `<div class="gallery-empty"><i class="fas fa-camera"></i><h3>NO IMAGES FOUND</h3><p>ADD IMAGES TO /images/gallery/ FOLDER</p></div>`;
             return;
         }
         
@@ -61,10 +77,6 @@ async function loadGallery() {
         
         updateStats();
         renderGallery();
-        
-        if (currentImages.length === 0) {
-            galleryGrid.innerHTML = `<div class="gallery-empty"><i class="fas fa-camera"></i><h3>NO IMAGES FOUND</h3><p>ADD IMAGES TO /images/gallery/ FOLDER</p></div>`;
-        }
         
     } catch (error) {
         galleryGrid.innerHTML = `<div class="gallery-empty"><i class="fas fa-camera"></i><h3>ERROR</h3><p>${error.message}</p></div>`;
