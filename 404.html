@@ -8,21 +8,249 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💙</text></svg>">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        :root {
+            --baby-100: #e6f0fa;
+            --baby-200: #b8d9f5;
+            --baby-300: #89c4f4;
+            --baby-400: #5f9ea0;
+            --baby-500: #2c3e50;
+            --baby-600: #1a2c3a;
+            --white: #ffffff;
+            --shadow-sm: 0 5px 20px rgba(137, 196, 244, 0.15);
+            --shadow-lg: 0 15px 40px rgba(95, 158, 160, 0.25);
+            --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(145deg, var(--baby-100), #d9e9fa);
+            color: var(--baby-500);
+            min-height: 100vh;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            background: var(--baby-500);
+            padding: 1rem 0;
+            width: 100%;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--baby-300);
+        }
+
+        .btn-primary, .btn-secondary {
+            padding: 0.8rem 2rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .btn-primary {
+            background: linear-gradient(145deg, var(--baby-300), var(--baby-400));
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--baby-500);
+            border: 1.5px solid var(--baby-200);
+        }
+
+        .btn-secondary:hover {
+            background: var(--baby-100);
+            border-color: var(--baby-300);
+            transform: translateY(-2px);
+        }
+
+        /* CONTAINER */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* FOOTER STYLES */
+        .footer {
+            background: var(--baby-500);
+            color: var(--white);
+            padding: 3rem 2rem 1rem;
+            margin-top: 4rem;
+        }
+
+        .footer-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .footer-logo h3 {
+            color: var(--baby-300);
+            margin-bottom: 0.5rem;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 0.8rem;
+        }
+
+        .social-icon {
+            width: 36px;
+            height: 36px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-icon:hover {
+            background: var(--baby-300);
+            color: var(--baby-500);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.6);
+        }
+
+        .error-container {
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .error-code {
+            font-size: 8rem;
+            font-weight: 700;
+            color: var(--baby-300);
+            line-height: 1;
+            text-shadow: 0 10px 20px rgba(137,196,244,0.3);
+        }
+        
+        .error-message {
+            font-size: 1.5rem;
+            color: var(--baby-500);
+            margin-bottom: 1rem;
+        }
+        
+        .error-detail {
+            color: var(--baby-400);
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+        
+        .redirect-message {
+            background: var(--baby-100);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            margin: 2rem 0;
+            border: 1px solid var(--baby-200);
+            font-weight: 500;
+        }
+        
+        .loader {
+            border: 4px solid var(--baby-100);
+            border-top: 4px solid var(--baby-300);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 2rem auto;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .suggestions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .error-code {
+                font-size: 5rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- NAV BAR -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="index.html" class="logo">
+            <a href="/WebSys-LAB2/index.html" class="logo">
                 <i class="fas fa-blog"></i>
             </a>
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="student1_elaine/main.html">Elaine</a></li>
-                <li><a href="student2_cj/main.html">CJ</a></li>
+                <li><a href="/WebSys-LAB2/index.html">Home</a></li>
+                <li><a href="/WebSys-LAB2/student1_elaine/main.html">Elaine</a></li>
+                <li><a href="/WebSys-LAB2/student2_cj/main.html">CJ</a></li>
             </ul>
         </div>
     </nav>
@@ -34,15 +262,15 @@
             <div class="error-detail" id="errorPath">Checking if file exists...</div>
             
             <div class="redirect-message" id="redirectMessage">
-                <span>CHECKING AVAILABLE PAGES</span>
+                <span>🔍 CHECKING AVAILABLE PAGES</span>
             </div>
             
             <div class="loader" id="loader"></div>
             
             <div id="suggestions" class="suggestions">
-                <a href="index.html" class="btn-primary">GO HOME</a>
-                <a href="student1_elaine/main.html" class="btn-secondary">ELAINE'S PORTFOLIO</a>
-                <a href="student2_cj/main.html" class="btn-secondary">CJ'S PORTFOLIO</a>
+                <a href="/WebSys-LAB2/index.html" class="btn-primary">🏠 GO HOME</a>
+                <a href="/WebSys-LAB2/student1_elaine/main.html" class="btn-secondary">👩 ELAINE</a>
+                <a href="/WebSys-LAB2/student2_cj/main.html" class="btn-secondary">👨 CJ</a>
             </div>
         </div>
     </div>
@@ -50,8 +278,8 @@
     <script>
         // GET BROKEN LINK
         const brokenPath = window.location.pathname;
-        const repoName = brokenPath.split('/')[1];
-        const baseUrl = repoName ? `/${repoName}` : '';
+        const repoName = 'WebSys-LAB2';
+        const baseUrl = `/${repoName}`;
         
         document.getElementById('errorPath').innerHTML = 
             `You tried to access: <strong>${brokenPath}</strong>`;
@@ -107,13 +335,13 @@
             return possiblePages;
         }
 
-        // AUTO-REDIRECT IF SINGLE MATCH FOUND
+        // AUTO-REDIRECT IF FOUND
         async function handleRedirect() {
             const redirectMsg = document.getElementById('redirectMessage');
             const loader = document.getElementById('loader');
             const suggestionsDiv = document.getElementById('suggestions');
             
-            // CHECK IF THE FILE EXISTS BUT PATH IS WRONG
+            // CHECK IF FILE EXISTS IN CORRECT LOCATION
             const fileName = brokenPath.split('/').pop();
             let foundPath = null;
             
@@ -138,7 +366,7 @@
             }
             
             if (foundPath) {
-                redirectMsg.innerHTML = `FOUND! Redirecting to correct page...`;
+                redirectMsg.innerHTML = `✅ FOUND! Redirecting...`;
                 setTimeout(() => {
                     window.location.href = foundPath;
                 }, 2000);
@@ -149,7 +377,7 @@
             const similarPages = await findSimilarPages();
             
             if (similarPages.length > 0) {
-                redirectMsg.innerHTML = `SIMILAR PAGES FOUND:`;
+                redirectMsg.innerHTML = `📋 SIMILAR PAGES:`;
                 
                 // ADD SUGGESTIONS
                 similarPages.slice(0, 4).forEach(page => {
@@ -161,7 +389,7 @@
                     suggestionsDiv.appendChild(btn);
                 });
             } else {
-                redirectMsg.innerHTML = `NO SIMILAR PAGES FOUND`;
+                redirectMsg.innerHTML = `❌ NO SIMILAR PAGES`;
             }
             
             loader.style.display = 'none';
