@@ -56,7 +56,7 @@
         <p>all my stories, in one place</p>
         <div class="archive-stats-simple" id="archiveStats">
             <span><i class="fas fa-book-open"></i> <span id="postCount">0</span> posts</span>
-            <span><i class="fas fa-calendar"></i> est. Feb 2026</span>
+            <span><i class="fas fa-calendar"></i> latest: <span id="latestDate">—</span></span>
         </div>
     </div>
 
@@ -116,7 +116,11 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             if (typeof loadBlogArchive === 'function') {
-                loadBlogArchive('cj');
+                loadBlogArchive('elaine').then(() => {
+                    if (typeof setupSearch === 'function') {
+                        setupSearch();
+                    }
+                });
             }
         });
     </script>
