@@ -5,7 +5,7 @@ A simple, modern, and sleek portfolio blog website built as a duo project for We
 ---
 
 ## 🌐 Live Preview
-Open (https://github.com/morteius/WebSys-LAB2) in your browser to view the website.
+Open [Duo Blog](https://morteius.github.io/WebSys-LAB2/index.html) in your browser to view the website.
 
 ---
 
