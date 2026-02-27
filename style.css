@@ -9,6 +9,7 @@ html {
 }
 
 :root {
+    /* BABY BLUE PALETTE */
     --baby-100: #e6f0fa;
     --baby-200: #b8d9f5;
     --baby-300: #89c4f4;
@@ -28,6 +29,7 @@ body {
     padding-top: 70px;
 }
 
+/* NAVBAR */
 .navbar {
     position: fixed;
     top: 0;
@@ -89,6 +91,7 @@ body {
     height: 24px;
 }
 
+/* MOBILE SIDEBAR */
 .sidebar {
     position: fixed;
     top: 0;
@@ -143,6 +146,7 @@ body {
     color: var(--baby-300);
 }
 
+/* HERO - PROFESSIONAL */
 .hero-section {
     min-height: 90vh;
     display: flex;
@@ -153,6 +157,7 @@ body {
     overflow: hidden;
 }
 
+/* DECORATIVE BACKGROUND */
 .hero-section::before {
     content: '';
     position: absolute;
@@ -215,6 +220,7 @@ body {
     margin-bottom: 2rem;
 }
 
+/* CTA BUTTONS */
 .hero-buttons {
     display: flex;
     gap: 1rem;
@@ -264,6 +270,7 @@ body {
     transform: translateY(-3px);
 }
 
+/* HERO IMAGE */
 .hero-image {
     position: relative;
 }
@@ -295,6 +302,7 @@ body {
     transform: scale(1.05);
 }
 
+/* SCROLL INDICATOR - SIMPLE */
 .scroll-indicator {
     position: absolute;
     bottom: 2rem;
@@ -317,6 +325,64 @@ body {
     50%{ transform: translateX(-50%) translateY(-8px); }
 }
 
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+    .hero-title {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem;
+    }
+    
+    .hero-text {
+        order: 1;
+    }
+    
+    .hero-image {
+        order: 0;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+        margin: 0 auto;
+    }
+    
+    .hero-buttons {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+    }
+    
+    .hero-btn-primary,
+    .hero-btn-secondary {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .hero-image img {
+        height: 300px;
+    }
+}
+
+/* SECTION HEADERS */
 .section-header {
     text-align: center;
     margin-bottom: 3rem;
@@ -351,6 +417,7 @@ body {
     margin: 1.5rem auto 0;
 }
 
+/* PROFILE CARDS */
 .profiles-section {
     padding: 5rem 2rem;
 }
@@ -453,6 +520,7 @@ body {
     padding-top: 1.5rem;
 }
 
+/* BUTTONS */
 .btn-primary, .btn-secondary {
     padding: 0.6rem 1.2rem;
     border-radius: 40px;
@@ -488,6 +556,7 @@ body {
     transform: translateY(-2px);
 }
 
+/* RECENT POSTS */
 .recent-section {
     padding: 5rem 2rem;
     background: rgba(255,255,255,0.6);
@@ -569,6 +638,7 @@ body {
     transform: translateX(3px);
 }
 
+/* PROFILE HERO */
 .profile-hero {
     padding: 4rem 2rem;
     background: linear-gradient(135deg, var(--baby-500), var(--baby-400));
@@ -612,6 +682,7 @@ body {
     justify-content: center;
 }
 
+/* PROFILE STATS */
 .profile-stats {
     padding: 3rem 2rem;
     background: white;
@@ -639,6 +710,7 @@ body {
     font-size: 0.9rem;
 }
 
+/* ABOUT PREVIEW */
 .about-preview {
     padding: 4rem 2rem;
 }
@@ -678,6 +750,7 @@ body {
     justify-content: center;
 }
 
+/* PROFILE BLOGS */
 .profile-blogs {
     padding: 4rem 2rem;
     background: rgba(255,255,255,0.6);
@@ -760,6 +833,7 @@ body {
     gap: 0.5rem;
 }
 
+/* INTERESTS GRID */
 .interests-preview {
     padding: 4rem 2rem;
 }
@@ -795,6 +869,7 @@ body {
     font-size: 1.2rem;
 }
 
+/* PAGE HEADER */
 .page-header {
     padding: 4rem 2rem;
     background: linear-gradient(135deg, var(--baby-500), var(--baby-400));
@@ -812,6 +887,7 @@ body {
     opacity: 0.9;
 }
 
+/* ABOUT SECTION */
 .about-section {
     padding: 4rem 2rem;
 }
@@ -960,6 +1036,30 @@ body {
     margin-top: 2rem;
 }
 
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .about-preview-buttons {
+        flex-direction: column;
+    }
+    
+    .profile-blogs-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .hobbies-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .profile-hero-name {
+        font-size: 2rem;
+    }
+}
+
+/* STATS */
 .stats-section {
     padding: 3rem 2rem;
     background: linear-gradient(145deg, var(--baby-300), var(--baby-400));
@@ -997,6 +1097,7 @@ body {
     letter-spacing: 1px;
 }
 
+/* CTA  */
 .cta-section {
     padding: 5rem 2rem;
     text-align: center;
@@ -1023,6 +1124,7 @@ body {
     flex-wrap: wrap;
 }
 
+/* FOOTER */
 .footer {
     background: var(--baby-500);
     color: var(--white);
@@ -1112,12 +1214,7 @@ body {
     font-size: 0.85rem;
 }
 
-@media (max-width: 1024px) {
-    .hero-title {
-        font-size: 3rem;
-    }
-}
-
+/* RESPONSIVE */
 @media (max-width: 768px) {
     .nav-links {
         display: none;
@@ -1130,7 +1227,7 @@ body {
     .hero-content {
         grid-template-columns: 1fr;
         text-align: center;
-        gap: 1.5rem;
+        gap: 2rem;
     }
     
     .hero-text {
@@ -1139,379 +1236,35 @@ body {
     
     .hero-image {
         order: 0;
-        max-width: 400px;
+        max-width: 450px;
         margin: 0 auto;
     }
     
     .hero-title {
-        font-size: 2.2rem;
-        margin-bottom: 1rem;
-    }
-    
-    .hero-subtitle {
-        font-size: 1rem;
-        line-height: 1.6;
-        margin: 0 auto 1.5rem;
-        max-width: 350px;
-    }
-    
-    .hero-buttons {
-        justify-content: center;
-        gap: 0.8rem;
-    }
-    
-    .hero-btn-primary,
-    .hero-btn-secondary {
-        padding: 0.8rem 1.5rem;
-        font-size: 0.9rem;
-    }
-    
-    .hero-image img {
-        height: 250px;
-    }
-    
-    .section-header {
-        margin-bottom: 2rem;
-    }
-    
-    .section-header h2 {
-        font-size: 1.8rem;
-    }
-    
-    .section-header p {
-        font-size: 0.9rem;
-        margin: 1rem auto 0;
-    }
-    
-    .profiles-section,
-    .recent-section,
-    .profile-blogs,
-    .interests-preview,
-    .about-section,
-    .cta-section {
-        padding: 3rem 1rem;
-    }
-    
-    .profiles-grid {
-        gap: 1.5rem;
-        padding: 0 0.5rem;
-    }
-    
-    .profile-card {
-        padding: 1.5rem 1.2rem;
-    }
-    
-    .profile-avatar {
-        width: 90px;
-        height: 90px;
         font-size: 2.5rem;
     }
     
-    .profile-header h3 {
-        font-size: 1.3rem;
-    }
-    
-    .profile-bio {
-        font-size: 0.85rem;
-        margin: 1rem 0;
-    }
-    
-    .profile-tags {
-        gap: 0.3rem;
-        margin-bottom: 1.5rem;
-    }
-    
-    .tag {
-        padding: 0.2rem 0.7rem;
-        font-size: 0.7rem;
-    }
-    
-    .profile-footer {
-        gap: 0.3rem;
-        padding-top: 1rem;
-    }
-    
-    .btn-primary, .btn-secondary {
-        padding: 0.4rem 1rem;
-        font-size: 0.8rem;
+    .hero-subtitle {
+        margin: 0 auto;
     }
     
     .recent-grid {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
-        padding: 0 0.5rem;
-    }
-    
-    .recent-group h3 {
-        font-size: 1.1rem;
-        margin-bottom: 0.8rem;
-    }
-    
-    .recent-item {
-        padding: 0.8rem 1rem;
-    }
-    
-    .recent-title {
-        font-size: 0.9rem;
-    }
-    
-    .recent-date {
-        font-size: 0.7rem;
-    }
-    
-    .profile-hero {
-        padding: 2.5rem 1rem;
-    }
-    
-    .profile-hero-avatar {
-        width: 90px;
-        height: 90px;
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
-    }
-    
-    .profile-hero-name {
-        font-size: 1.8rem;
-    }
-    
-    .profile-hero-tagline {
-        font-size: 0.9rem;
-    }
-    
-    .profile-stats {
-        padding: 2rem 1rem;
-    }
-    
-    .stats-grid {
-        gap: 1rem;
-    }
-    
-    .stat-value {
-        font-size: 1.8rem;
-    }
-    
-    .stat-label {
-        font-size: 0.8rem;
-    }
-    
-    .about-preview {
-        padding: 2rem 1rem;
-    }
-    
-    .about-preview-card {
-        padding: 2rem 1.5rem;
-    }
-    
-    .about-quote {
-        font-size: 1rem;
-    }
-    
-    .about-preview-buttons {
-        flex-direction: column;
-        gap: 0.8rem;
-    }
-    
-    .profile-blogs-grid {
-        gap: 1rem;
-        padding: 0 0.5rem;
-    }
-    
-    .blog-card {
-        padding: 1.2rem;
-    }
-    
-    .blog-card-date {
-        font-size: 0.8rem;
-    }
-    
-    .blog-card-title {
-        font-size: 1.1rem;
-    }
-    
-    .blog-card-excerpt {
-        font-size: 0.85rem;
-        margin-bottom: 1rem;
-    }
-    
-    .blog-card-tag {
-        font-size: 0.75rem;
-    }
-    
-    .interests-grid {
-        gap: 0.6rem;
-        padding: 0 0.5rem;
-    }
-    
-    .interest-item {
-        padding: 0.6rem 1rem;
-        font-size: 0.85rem;
-    }
-    
-    .interest-icon {
-        font-size: 1rem;
-    }
-    
-    .page-header {
-        padding: 2.5rem 1rem;
-    }
-    
-    .page-header h1 {
-        font-size: 1.8rem;
-    }
-    
-    .about-grid {
-        gap: 1rem;
-        padding: 0 0.5rem;
-    }
-    
-    .about-card {
-        padding: 1.5rem;
-    }
-    
-    .about-card h2 {
-        font-size: 1.1rem;
-        margin-bottom: 1rem;
-    }
-    
-    .info-label {
-        font-size: 0.75rem;
-    }
-    
-    .info-value {
-        font-size: 0.85rem;
-    }
-    
-    .hobbies-grid {
-        gap: 0.6rem;
-    }
-    
-    .hobby-item {
-        padding: 0.4rem;
-        font-size: 0.85rem;
-    }
-    
-    .interest-tag {
-        padding: 0.4rem 1rem;
-        font-size: 0.8rem;
-    }
-    
-    .goal-item {
-        padding: 0.6rem;
-    }
-    
-    .goal-item p {
-        font-size: 0.85rem;
-    }
-    
-    .stats-section {
-        padding: 2rem 1rem;
+        gap: 2rem;
     }
     
     .stats-container {
-        gap: 1rem;
+        grid-template-columns: 1fr;
     }
     
-    .stat-card {
-        padding: 1rem;
-    }
-    
-    .stat-number {
-        font-size: 1.8rem;
-    }
-    
-    .stat-label {
-        font-size: 0.7rem;
-        letter-spacing: 0.5px;
-    }
-    
-    .cta-content h2 {
-        font-size: 1.8rem;
-    }
-    
-    .cta-content p {
-        font-size: 0.9rem;
-    }
-    
-    .footer {
-        padding: 2rem 1rem 0.5rem;
-    }
-    
-    .footer-container {
-        gap: 1.5rem;
-    }
-    
-    .footer-logo h3 {
-        font-size: 1.2rem;
-    }
-    
-    .footer-logo p {
-        font-size: 0.8rem;
-    }
-    
-    .footer-social h4,
-    .footer-links h4 {
-        font-size: 0.9rem;
-        margin-bottom: 0.8rem;
-    }
-    
-    .social-icon {
-        width: 32px;
-        height: 32px;
-    }
-    
-    .footer-links li {
-        margin-bottom: 0.4rem;
-    }
-    
-    .footer-links a {
-        font-size: 0.8rem;
-    }
-    
-    .footer-bottom {
-        font-size: 0.75rem;
-        padding-top: 1rem;
+    .profile-footer {
+        flex-wrap: wrap;
     }
 }
 
 @media (max-width: 480px) {
     .hero-title {
-        font-size: 1.8rem;
-    }
-    
-    .hero-subtitle {
-        font-size: 0.9rem;
-        max-width: 280px;
-    }
-    
-    .hero-buttons {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-    
-    .hero-btn-primary,
-    .hero-btn-secondary {
-        width: 100%;
-        justify-content: center;
-        padding: 0.7rem 1rem;
-        font-size: 0.85rem;
-    }
-    
-    .hero-image img {
-        height: 200px;
-    }
-    
-    .section-header h2 {
-        font-size: 1.5rem;
-    }
-    
-    .profiles-grid {
-        grid-template-columns: 1fr;
-        max-width: 300px;
-        margin: 0 auto;
-    }
-    
-    .profile-card {
-        padding: 1.2rem 1rem;
+        font-size: 2rem;
     }
     
     .profile-footer {
@@ -1521,43 +1274,6 @@ body {
     .btn-primary, .btn-secondary {
         width: 100%;
         justify-content: center;
-    }
-    
-    .recent-group h3 {
-        font-size: 1rem;
-    }
-    
-    .profile-hero-name {
-        font-size: 1.5rem;
-    }
-    
-    .profile-hero-tagline {
-        font-size: 0.8rem;
-    }
-    
-    .stats-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-    
-    .stat-value {
-        font-size: 1.5rem;
-    }
-    
-    .profile-blogs-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .about-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .hobbies-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .stats-container {
-        grid-template-columns: 1fr;
     }
     
     .cta-buttons {
