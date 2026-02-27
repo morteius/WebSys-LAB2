@@ -127,7 +127,7 @@ function navigateModal(direction) {
 
 // START EVERYTHING
 document.addEventListener('DOMContentLoaded', () => {
-    loadGalleryList();
+    loadGalleryList();  // CALL THE CORRECT FUNCTION
     
     // FILTER BUTTONS
     document.querySelectorAll('.filter-btn').forEach(btn => {
@@ -177,4 +177,4 @@ document.addEventListener('keydown', (e) => {
 window.openModal = openModal;
 window.closeModal = closeModal;
 window.navigateModal = navigateModal;
-window.refreshGallery = loadGalleryList;
+window.refreshGallery = loadGalleryList;  // ALSO FIX THIS
