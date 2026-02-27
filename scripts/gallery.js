@@ -15,7 +15,7 @@ async function loadGallery() {
     
     try {
         const baseUrl = '/WebSys-LAB2';
-        const imageExtensions = ['jpg', 'jpeg', 'png', 'gif', 'webp', 'JPG', 'JPEG'];
+        const imageExtensions = ['jpg', 'jpeg', 'png', 'gif', 'webp', 'JPG', 'JPEG', 'heic'];
         
         currentImages = [];
         
