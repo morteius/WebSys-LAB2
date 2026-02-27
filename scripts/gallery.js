@@ -4,47 +4,86 @@ let currentImages = [];
 let filteredImages = [];
 let currentIndex = 0;
 
-// LOAD THE AUTO-GENERATED IMAGE LIST
-function loadGalleryList() {
-    return new Promise((resolve) => {
-        const script = document.createElement('script');
-        script.src = 'scripts/image-list.js?' + Date.now(); // Cache bust
-        script.onload = () => {
-            console.log('✅ GALLERY LIST LOADED:', galleryImages.length, 'IMAGES');
-            
-            // CONVERT FILENAMES TO IMAGE OBJECTS
-            const baseUrl = '/WebSys-LAB2';
-            currentImages = galleryImages.map((filename, index) => {
-                return {
-                    url: `${baseUrl}/images/gallery/${filename}`,
-                    filename: filename,
-                    displayName: filename.split('.')[0].replace(/[_-]/g, ' '),
-                    index: index,
-                    date: 'LOADING...'
-                };
-            });
-            
-            // GET DATES FOR EACH IMAGE
-            Promise.all(currentImages.map(async (img) => {
+// AUTO-DETECT ALL IMAGES IN GALLERY FOLDER
+async function loadGallery() {
+    console.log('🔄 AUTO-SCANNING FOR IMAGES...');
+    
+    const galleryGrid = document.getElementById('galleryGrid');
+    if (!galleryGrid) return;
+    
+    galleryGrid.innerHTML = '<div class="gallery-loading"><i class="fas fa-spinner fa-spin"></i><p>LOADING MEMORIES...</p></div>';
+    
+    try {
+        const baseUrl = '/WebSys-LAB2';
+        const imageExtensions = ['jpg', 'jpeg', 'png', 'gif', 'webp', 'JPG', 'JPEG', 'PNG', 'GIF', 'WEBP', 'heic', 'HEIC'];
+        
+        currentImages = [];
+        
+        
+        const commonNames = [
+            'day1', 'day2', 'day3', 'day4', 'day5', 'day6',
+            'ellie_cj', 'babyEllie', 'babyCj', 'cj', 'elaine',
+            'lunch', 'photobooth', 'swimming', 'pancit', 'icecream',
+            'group', 'market'
+        ];
+        
+        const imageFiles = [];
+        
+        // CHECK ALL COMBINATIONS
+        for (const name of commonNames) {
+            for (const ext of imageExtensions) {
+                const filename = `${name}.${ext}`;
+                const imgUrl = `${baseUrl}/images/gallery/${filename}`;
+                
                 try {
-                    const res = await fetch(img.url, { method: 'HEAD' });
-                    const lastModified = res.headers.get('last-modified');
-                    if (lastModified) {
-                        img.date = new Date(lastModified).toLocaleDateString('en-US', { 
-                            month: 'short', day: 'numeric', year: 'numeric' 
-                        });
+                    const res = await fetch(imgUrl, { method: 'HEAD' });
+                    if (res.ok) {
+                        imageFiles.push(filename);
+                        console.log(`✅ FOUND: ${filename}`);
+                        break;
                     }
                 } catch (e) {}
-            })).then(() => {
-                filteredImages = [...currentImages];
-                updateStats();
-                renderGallery();
-            });
+            }
+        }
+        
+        // CONVERT TO IMAGE OBJECTS
+        for (let i = 0; i < imageFiles.length; i++) {
+            const filename = imageFiles[i];
+            const imgUrl = `${baseUrl}/images/gallery/${filename}`;
             
-            resolve();
-        };
-        document.head.appendChild(script);
-    });
+            let fileDate = 'UNKNOWN';
+            try {
+                const res = await fetch(imgUrl, { method: 'HEAD' });
+                const lastModified = res.headers.get('last-modified');
+                if (lastModified) {
+                    fileDate = new Date(lastModified).toLocaleDateString('en-US', { 
+                        month: 'short', day: 'numeric', year: 'numeric' 
+                    });
+                }
+            } catch (e) {}
+            
+            currentImages.push({
+                url: imgUrl,
+                filename: filename,
+                displayName: filename.split('.')[0].replace(/[_-]/g, ' '),
+                date: fileDate
+            });
+        }
+        
+        // SORT BY DATE (NEWEST FIRST)
+        currentImages.sort((a, b) => b.date.localeCompare(a.date));
+        filteredImages = [...currentImages];
+        
+        updateStats();
+        renderGallery();
+        
+        if (currentImages.length === 0) {
+            galleryGrid.innerHTML = `<div class="gallery-empty"><i class="fas fa-camera"></i><h3>NO IMAGES FOUND</h3><p>ADD IMAGES TO /images/gallery/ FOLDER</p></div>`;
+        }
+        
+    } catch (error) {
+        galleryGrid.innerHTML = `<div class="gallery-empty"><i class="fas fa-camera"></i><h3>ERROR</h3><p>${error.message}</p></div>`;
+    }
 }
 
 // UPDATE STATS
@@ -57,9 +96,7 @@ function updateStats() {
     }
     
     if (latestStat && currentImages.length > 0) {
-        // SORT BY DATE TO FIND LATEST
-        const sorted = [...currentImages].sort((a, b) => b.date.localeCompare(a.date));
-        latestStat.innerHTML = `<i class="fas fa-calendar"></i><span>LATEST: ${sorted[0].date}</span>`;
+        latestStat.innerHTML = `<i class="fas fa-calendar"></i><span>LATEST: ${currentImages[0].date}</span>`;
     }
 }
 
@@ -83,7 +120,7 @@ function renderGallery() {
         item.innerHTML = `
             <img src="${img.url}" alt="${img.filename}" loading="lazy">
             <div class="gallery-overlay">
-                <span class="gallery-title">${img.displayName}</span>
+                <span class="gallery-title">${img.displayName.toUpperCase()}</span>
                 <span class="gallery-date"><i class="fas fa-calendar"></i> ${img.date}</span>
                 <span class="gallery-filename">${img.filename}</span>
             </div>
@@ -125,43 +162,41 @@ function navigateModal(direction) {
     modalCaption.innerHTML = `${filteredImages[currentIndex].displayName} · ${filteredImages[currentIndex].date}`;
 }
 
-// START EVERYTHING
-document.addEventListener('DOMContentLoaded', () => {
-    loadGalleryList();  // CALL THE CORRECT FUNCTION
-    
-    // FILTER BUTTONS
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-            e.target.classList.add('active');
-            
-            const filter = e.target.dataset.filter;
-            
-            if (filter === 'all') {
-                filteredImages = [...currentImages];
-            } else if (filter === 'recent') {
-                filteredImages = [...currentImages].sort((a, b) => b.date.localeCompare(a.date));
-            } else if (filter === 'oldest') {
-                filteredImages = [...currentImages].sort((a, b) => a.date.localeCompare(b.date));
-            }
-            
-            renderGallery();
-        });
+// START
+document.addEventListener('DOMContentLoaded', loadGallery);
+
+// FILTER BUTTONS
+document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        e.target.classList.add('active');
+        
+        const filter = e.target.dataset.filter;
+        
+        if (filter === 'all') {
+            filteredImages = [...currentImages];
+        } else if (filter === 'recent') {
+            filteredImages = [...currentImages].sort((a, b) => b.date.localeCompare(a.date));
+        } else if (filter === 'oldest') {
+            filteredImages = [...currentImages].sort((a, b) => a.date.localeCompare(b.date));
+        }
+        
+        renderGallery();
     });
-    
-    // SEARCH INPUT
-    const searchInput = document.getElementById('searchInput');
-    if (searchInput) {
-        searchInput.addEventListener('input', (e) => {
-            const term = e.target.value.toLowerCase();
-            filteredImages = currentImages.filter(img => 
-                img.filename.toLowerCase().includes(term) || 
-                img.displayName.toLowerCase().includes(term)
-            );
-            renderGallery();
-        });
-    }
 });
+
+// SEARCH
+const searchInput = document.getElementById('searchInput');
+if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+        const term = e.target.value.toLowerCase();
+        filteredImages = currentImages.filter(img => 
+            img.filename.toLowerCase().includes(term) || 
+            img.displayName.toLowerCase().includes(term)
+        );
+        renderGallery();
+    });
+}
 
 // KEYBOARD NAVIGATION
 document.addEventListener('keydown', (e) => {
@@ -173,8 +208,8 @@ document.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowRight') navigateModal(1);
 });
 
-// EXPOSE FUNCTIONS
+// EXPOSE
 window.openModal = openModal;
 window.closeModal = closeModal;
 window.navigateModal = navigateModal;
-window.refreshGallery = loadGalleryList;  // ALSO FIX THIS
+window.refreshGallery = loadGallery;
