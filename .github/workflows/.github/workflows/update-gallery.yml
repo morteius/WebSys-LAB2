@@ -1,4 +1,4 @@
-name: UPDATE GALLERY LIST
+name: UPDATE GALLERY LIST 
 
 on:
   push:
