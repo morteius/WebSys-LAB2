@@ -134,7 +134,7 @@ Two students documenting their daily lives, coding journey, and everything in be
   <table>
     <tr>
       <td align="center">
-        <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f469/512.png" width="80" />
+        <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/People/Artist.png" width="80" />
         <br>
         <h3>Elaine L. Paras</h3>
         <p><code>@doflsrn</code></p>
@@ -146,7 +146,7 @@ Two students documenting their daily lives, coding journey, and everything in be
         <p>🎨 Art · 📖 Reading · 🏐 Volleyball</p>
       </td>
       <td align="center">
-        <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f468/512.png" width="80" />
+        <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/People/Technologist.png" width="80" />
         <br>
         <h3>Charles James G. Mape</h3>
         <p><code>@morteius</code></p>
