@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Memories · Gallery</title>
+    <meta name="color-scheme" content="light only">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💙</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="gallery.css">
+</head>
+<body class="gallery-page">
+
+    <!-- NAV BAR -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-blog"></i>
+            </a>
+            
+            <ul class="sidebar" id="sidebar">
+                <li class="close-btn" onclick="hideSidebar()">
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960" width="28px" fill="#fff">
+                            <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                        </svg>
+                    </a>
+                </li>
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="gallery.html" class="active"><i class="fas fa-images"></i> Gallery</a></li>
+                <li><a href="student1_elaine/main.html"><i class="fas fa-user"></i> Elaine</a></li>
+                <li><a href="student2_cj/main.html"><i class="fas fa-user"></i> CJ</a></li>
+            </ul>
+            
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="gallery.html" class="active">Gallery</a></li>
+                <li><a href="student1_elaine/main.html">Elaine</a></li>
+                <li><a href="student2_cj/main.html">CJ</a></li>
+            </ul>
+            
+            <div class="menu-button" onclick="showSidebar()">
+                <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="#fff">
+                    <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/>
+                </svg>
+            </div>
+        </div>
+    </nav>
+
+    <!-- GALLERY HEADER -->
+    <section class="gallery-header">
+        <div class="gallery-header-content">
+            <h1><i class="fas fa-heart"></i> Our Memories</h1>
+            <p>captured moments, shared stories, and everything in between</p>
+            <div class="gallery-stats">
+                <div class="gallery-stat" id="totalStat">
+                    <i class="fas fa-images"></i>
+                    <span>Loading...</span>
+                </div>
+                <div class="gallery-stat" id="latestStat">
+                    <i class="fas fa-calendar"></i>
+                    <span>Just now</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY CONTAINER -->
+    <div class="gallery-container">
+        
+        <!-- GALLERY CONTROLS -->
+        <div class="gallery-controls">
+            <div class="gallery-filter">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="recent">Recent</button>
+                <button class="filter-btn" data-filter="oldest">Oldest</button>
+            </div>
+            <div class="gallery-search">
+                <input type="text" id="searchInput" placeholder="Search memories...">
+                <i class="fas fa-search" style="color: var(--baby-300);"></i>
+            </div>
+        </div>
+
+        <!-- GALLERY GRID - 5x8 LAYOUT -->
+        <div class="gallery-grid" id="galleryGrid">
+            <div class="gallery-loading">
+                <i class="fas fa-spinner fa-spin"></i>
+                <p>Loading memories...</p>
+            </div>
+        </div>
+
+        <!-- GALLERY FOOTER -->
+        <div class="gallery-footer">
+            <p><i class="fas fa-camera"></i> every picture tells a story</p>
+        </div>
+    </div>
+
+    <!-- MODAL FOR FULLSCREEN VIEW -->
+    <div class="gallery-modal" id="galleryModal">
+        <div class="modal-nav prev" onclick="navigateModal(-1)"><i class="fas fa-chevron-left"></i></div>
+        <div class="modal-content">
+            <img src="" alt="" id="modalImage">
+            <div class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></div>
+            <div class="modal-caption" id="modalCaption"></div>
+        </div>
+        <div class="modal-nav next" onclick="navigateModal(1)"><i class="fas fa-chevron-right"></i></div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <h3>CJ & Elaine</h3>
+                <p>two students, two stories, one blog.</p>
+            </div>
+            
+            <div class="footer-social">
+                <h4>connect with us</h4>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/mortieus" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/morteius/" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="https://github.com/morteius" class="social-icon"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h4>quick links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="student1_elaine/main.html">Elaine</a></li>
+                    <li><a href="student2_cj/main.html">CJ</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 CJ & Elaine · duo project · all rights reserved</p>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script>
+        function showSidebar() {
+            document.getElementById('sidebar').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function hideSidebar() {
+            document.getElementById('sidebar').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        
+        document.addEventListener('click', function(event) {
+            const sidebar = document.getElementById('sidebar');
+            const menuButton = document.querySelector('.menu-button');
+            
+            if (sidebar.classList.contains('active') && 
+                !sidebar.contains(event.target) && 
+                !menuButton.contains(event.target)) {
+                hideSidebar();
+            }
+        });
+    </script>
+    <script src="scripts/gallery.js"></script>
+</body>
+</html>
