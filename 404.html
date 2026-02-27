@@ -36,11 +36,15 @@
             min-height: 100vh;
         }
 
-        /* NAVBAR */
+        /* FIXED NAVBAR */
         .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
             background: var(--baby-500);
             padding: 1rem 0;
-            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
         .nav-container {
@@ -75,7 +79,14 @@
             color: var(--baby-300);
         }
 
-        .btn-primary, .btn-secondary {
+        /* ADD PADDING TO PUSH CONTENT BELOW FIXED NAVBAR */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 6rem 2rem 2rem;
+        }
+
+        .btn-primary {
             padding: 0.8rem 2rem;
             border-radius: 40px;
             text-decoration: none;
@@ -84,9 +95,6 @@
             align-items: center;
             gap: 0.5rem;
             transition: var(--transition);
-        }
-
-        .btn-primary {
             background: linear-gradient(145deg, var(--baby-300), var(--baby-400));
             color: var(--white);
         }
@@ -94,78 +102,6 @@
         .btn-primary:hover {
             transform: translateY(-2px);
             box-shadow: var(--shadow-lg);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--baby-500);
-            border: 1.5px solid var(--baby-200);
-        }
-
-        .btn-secondary:hover {
-            background: var(--baby-100);
-            border-color: var(--baby-300);
-            transform: translateY(-2px);
-        }
-
-        /* CONTAINER */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        /* FOOTER STYLES */
-        .footer {
-            background: var(--baby-500);
-            color: var(--white);
-            padding: 3rem 2rem 1rem;
-            margin-top: 4rem;
-        }
-
-        .footer-container {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .footer-logo h3 {
-            color: var(--baby-300);
-            margin-bottom: 0.5rem;
-        }
-
-        .social-icons {
-            display: flex;
-            gap: 0.8rem;
-        }
-
-        .social-icon {
-            width: 36px;
-            height: 36px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .social-icon:hover {
-            background: var(--baby-300);
-            color: var(--baby-500);
-            transform: translateY(-3px);
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            margin-top: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            color: rgba(255,255,255,0.6);
         }
 
         .error-container {
@@ -183,51 +119,23 @@
             font-weight: 700;
             color: var(--baby-300);
             line-height: 1;
-            text-shadow: 0 10px 20px rgba(137,196,244,0.3);
-        }
-        
-        .error-message {
-            font-size: 1.5rem;
-            color: var(--baby-500);
             margin-bottom: 1rem;
         }
         
-        .error-detail {
-            color: var(--baby-400);
+        .error-message {
+            font-size: 2rem;
+            color: var(--baby-500);
             margin-bottom: 2rem;
-            max-width: 500px;
         }
         
-        .redirect-message {
+        .error-detail {
             background: var(--baby-100);
             padding: 1rem 2rem;
             border-radius: 50px;
             margin: 2rem 0;
             border: 1px solid var(--baby-200);
             font-weight: 500;
-        }
-        
-        .loader {
-            border: 4px solid var(--baby-100);
-            border-top: 4px solid var(--baby-300);
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-            margin: 2rem auto;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        .suggestions {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-top: 2rem;
+            color: var(--baby-500);
         }
 
         @media (max-width: 768px) {
@@ -237,11 +145,14 @@
             .error-code {
                 font-size: 5rem;
             }
+            .error-message {
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- NAV BAR -->
+    <!-- FIXED NAV BAR -->
     <nav class="navbar">
         <div class="nav-container">
             <a href="/WebSys-LAB2/index.html" class="logo">
@@ -259,165 +170,23 @@
         <div class="error-container">
             <div class="error-code">404</div>
             <div class="error-message">PAGE NOT FOUND</div>
-            <div class="error-detail" id="errorPath">Checking if file exists...</div>
             
-            <div class="redirect-message" id="redirectMessage">
-                <span>🔍 CHECKING AVAILABLE PAGES</span>
+            <div class="error-detail" id="errorPath">
+                <i class="fas fa-exclamation-circle"></i> 
+                Checking page...
             </div>
             
-            <div class="loader" id="loader"></div>
-            
-            <div id="suggestions" class="suggestions">
-                <a href="/WebSys-LAB2/index.html" class="btn-primary">🏠 GO HOME</a>
-                <a href="/WebSys-LAB2/student1_elaine/main.html" class="btn-secondary">👩 ELAINE</a>
-                <a href="/WebSys-LAB2/student2_cj/main.html" class="btn-secondary">👨 CJ</a>
-            </div>
+            <a href="/WebSys-LAB2/index.html" class="btn-primary">
+                <i class="fas fa-home"></i> BACK TO HOME
+            </a>
         </div>
     </div>
 
     <script>
-        // GET BROKEN LINK
         const brokenPath = window.location.pathname;
-        const repoName = 'WebSys-LAB2';
-        const baseUrl = `/${repoName}`;
-        
+        const fileName = brokenPath.split('/').pop() || 'page';
         document.getElementById('errorPath').innerHTML = 
-            `You tried to access: <strong>${brokenPath}</strong>`;
-
-        // CHECK IF PAGE EXISTS
-        async function checkPageExists(path) {
-            try {
-                const response = await fetch(path, { method: 'HEAD' });
-                return response.ok;
-            } catch {
-                return false;
-            }
-        }
-
-        // FIND SIMILAR PAGES
-        async function findSimilarPages() {
-            const pathParts = brokenPath.split('/');
-            const fileName = pathParts[pathParts.length - 1];
-            const possiblePages = [];
-            
-            // CHECK IF IT'S A BLOG POST
-            if (fileName.includes('day')) {
-                const dayMatch = fileName.match(/day(\d+)\.html/);
-                if (dayMatch) {
-                    const dayNum = parseInt(dayMatch[1]);
-                    
-                    // CHECK NEARBY DAYS
-                    for (let i = dayNum - 3; i <= dayNum + 3; i++) {
-                        if (i > 0 && i !== dayNum) {
-                            // CHECK CJ'S BLOG
-                            const cjPath = `${baseUrl}/student2_cj/blog/day${i}.html`;
-                            if (await checkPageExists(cjPath)) {
-                                possiblePages.push({
-                                    text: `CJ Day ${i}`,
-                                    url: cjPath,
-                                    type: 'cj'
-                                });
-                            }
-                            // CHECK ELAINE'S BLOG
-                            const elainePath = `${baseUrl}/student1_elaine/blog/day${i}.html`;
-                            if (await checkPageExists(elainePath)) {
-                                possiblePages.push({
-                                    text: `Elaine Day ${i}`,
-                                    url: elainePath,
-                                    type: 'elaine'
-                                });
-                            }
-                        }
-                    }
-                }
-            }
-            
-            return possiblePages;
-        }
-
-        // AUTO-REDIRECT IF FOUND
-        async function handleRedirect() {
-            const redirectMsg = document.getElementById('redirectMessage');
-            const loader = document.getElementById('loader');
-            const suggestionsDiv = document.getElementById('suggestions');
-            
-            // CHECK IF FILE EXISTS IN CORRECT LOCATION
-            const fileName = brokenPath.split('/').pop();
-            let foundPath = null;
-            
-            // SEARCH IN CJ'S BLOG
-            for (let i = 1; i <= 10; i++) {
-                const testPath = `${baseUrl}/student2_cj/blog/day${i}.html`;
-                if (testPath.endsWith(fileName) && await checkPageExists(testPath)) {
-                    foundPath = testPath;
-                    break;
-                }
-            }
-
-            // SEARCH IN ELAINE'S BLOG
-            if (!foundPath) {
-                for (let i = 1; i <= 10; i++) {
-                    const testPath = `${baseUrl}/student1_elaine/blog/day${i}.html`;
-                    if (testPath.endsWith(fileName) && await checkPageExists(testPath)) {
-                        foundPath = testPath;
-                        break;
-                    }
-                }
-            }
-            
-            if (foundPath) {
-                redirectMsg.innerHTML = `✅ FOUND! Redirecting...`;
-                setTimeout(() => {
-                    window.location.href = foundPath;
-                }, 2000);
-                return;
-            }
-            
-            // FIND SIMILAR PAGES
-            const similarPages = await findSimilarPages();
-            
-            if (similarPages.length > 0) {
-                redirectMsg.innerHTML = `📋 SIMILAR PAGES:`;
-                
-                // ADD SUGGESTIONS
-                similarPages.slice(0, 4).forEach(page => {
-                    const btn = document.createElement('a');
-                    btn.href = page.url;
-                    btn.className = page.type === 'cj' ? 'btn-secondary' : 'btn-primary';
-                    btn.style.margin = '0.5rem';
-                    btn.innerHTML = page.text;
-                    suggestionsDiv.appendChild(btn);
-                });
-            } else {
-                redirectMsg.innerHTML = `❌ NO SIMILAR PAGES`;
-            }
-            
-            loader.style.display = 'none';
-        }
-
-        // RUN CHECK
-        handleRedirect();
+            `<i class="fas fa-exclamation-circle"></i> ${fileName} could not be found`;
     </script>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-logo">
-                <h3>CJ & Elaine</h3>
-                <p>two students, two stories, one blog.</p>
-            </div>
-            <div class="footer-social">
-                <h4>connect with us</h4>
-                <div class="social-icons">
-                    <a href="https://www.facebook.com/mortieus" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.instagram.com/morteius/" class="social-icon"><i class="fab fa-instagram"></i></a>
-                    <a href="https://github.com/morteius" class="social-icon"><i class="fab fa-github"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 CJ & Elaine · duo project</p>
-        </div>
-    </footer>
 </body>
 </html>
