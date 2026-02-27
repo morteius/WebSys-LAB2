@@ -79,7 +79,6 @@
     box-shadow: 0 0 0 3px rgba(137,196,244,0.2);
 }
 
-/* FIXED TABLE CONTAINER */
 .archive-list-container {
     max-width: 900px;
     margin: 0 auto;
@@ -87,9 +86,8 @@
     width: 100%;
     box-sizing: border-box;
     flex: 0 0 auto;
-    height: 500px; 
+    height: 500px;
 }
-
 
 .archive-list {
     background: white;
@@ -99,34 +97,41 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    overflow: hidden; 
+    overflow: hidden;
 }
 
-/* SCROLLABLE ROWS AREA */
 .archive-list-rows {
     flex: 1;
-    overflow-y: auto;
+    overflow-y: scroll;
     padding: 0;
-    scrollbar-width: thin;
+    scrollbar-width: auto;
     scrollbar-color: var(--baby-300) var(--baby-100);
 }
 
-/* CUSTOM SCROLLBAR */
 .archive-list-rows::-webkit-scrollbar {
-    width: 8px;
+    width: 14px;
 }
 
 .archive-list-rows::-webkit-scrollbar-track {
     background: var(--baby-100);
+    border-radius: 0 20px 20px 0;
+    border-left: 2px solid var(--baby-200);
 }
 
 .archive-list-rows::-webkit-scrollbar-thumb {
     background: var(--baby-300);
-    border-radius: 4px;
+    border-radius: 7px;
+    border: 3px solid var(--baby-100);
+    min-height: 60px;
 }
 
 .archive-list-rows::-webkit-scrollbar-thumb:hover {
     background: var(--baby-400);
+}
+
+.archive-list-rows {
+    scrollbar-width: auto;
+    scrollbar-color: var(--baby-300) var(--baby-100);
 }
 
 .archive-list-item {
@@ -287,6 +292,10 @@
         flex-direction: column;
         gap: 0.2rem;
     }
+    
+    .archive-list-rows::-webkit-scrollbar {
+        width: 12px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -344,6 +353,10 @@
         font-size: 0.85rem;
         margin-left: 0.5rem;
     }
+    
+    .archive-list-rows::-webkit-scrollbar {
+        width: 10px;
+    }
 }
 
 @media (max-width: 360px) {
@@ -355,5 +368,9 @@
         width: 28px;
         height: 28px;
         font-size: 0.8rem;
+    }
+    
+    .archive-list-rows::-webkit-scrollbar {
+        width: 8px;
     }
 }
