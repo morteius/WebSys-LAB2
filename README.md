@@ -43,7 +43,7 @@ Two students documenting their daily lives, coding journey, and everything in be
   <tr>
     <td width="50%" align="center">
       <br>
-      <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/People/Technologist.png" width="80" />
+      <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f465/512.png" width="80" />
       <br>
       <h3>👥 TWO PORTFOLIOS</h3>
       <p>Separate sections for Elaine and CJ with individual about pages and blogs</p>
@@ -51,7 +51,7 @@ Two students documenting their daily lives, coding journey, and everything in be
     </td>
     <td width="50%" align="center">
       <br>
-      <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Book.png" width="80" />
+      <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f4dd/512.png" width="80" />
       <br>
       <h3>📝 DAILY BLOG</h3>
       <p>Fresh posts every day documenting our journey through college and life</p>
@@ -61,7 +61,7 @@ Two students documenting their daily lives, coding journey, and everything in be
   <tr>
     <td width="50%" align="center">
       <br>
-      <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Mobile%20Phone.png" width="80" />
+      <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f4f1/512.png" width="80" />
       <br>
       <h3>📱 FULLY RESPONSIVE</h3>
       <p>Looks great on desktop, tablet, and mobile devices</p>
@@ -69,7 +69,7 @@ Two students documenting their daily lives, coding journey, and everything in be
     </td>
     <td width="50%" align="center">
       <br>
-      <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Gem%20Stone.png" width="80" />
+      <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f3a8/512.png" width="80" />
       <br>
       <h3>🎨 BABY BLUE THEME</h3>
       <p>Clean, modern, and easy on the eyes — designed with love</p>
@@ -94,7 +94,6 @@ Two students documenting their daily lives, coding journey, and everything in be
   | <img src="https://via.placeholder.com/20/ffffff/ffffff?text=+" /> White | `#ffffff` | Cards, contrast |
 
 </div>
-
 
 <br>
 
@@ -121,9 +120,9 @@ Two students documenting their daily lives, coding journey, and everything in be
 </p>
 
 - **HTML5** — Structure
-- **CSS3** — Styling with variables
-- **JavaScript** — Dynamic features
-- **Git & GitHub** — Version control
+- **CSS3** — Styling with CSS variables
+- **JavaScript** — Dynamic features and auto-updates
+- **Git & GitHub** — Version control and collaboration
 - **Google Fonts** — Poppins typography
 - **Font Awesome** — Icons
 
@@ -135,7 +134,7 @@ Two students documenting their daily lives, coding journey, and everything in be
   <table>
     <tr>
       <td align="center">
-        <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/People/Artist.png" width="80" />
+        <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f469/512.png" width="80" />
         <br>
         <h3>Elaine L. Paras</h3>
         <p><code>@doflsrn</code></p>
@@ -147,7 +146,7 @@ Two students documenting their daily lives, coding journey, and everything in be
         <p>🎨 Art · 📖 Reading · 🏐 Volleyball</p>
       </td>
       <td align="center">
-        <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/People/Technologist.png" width="80" />
+        <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f468/512.png" width="80" />
         <br>
         <h3>Charles James G. Mape</h3>
         <p><code>@morteius</code></p>
