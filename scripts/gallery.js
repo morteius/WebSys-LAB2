@@ -4,9 +4,9 @@ let currentImages = [];
 let filteredImages = [];
 let currentIndex = 0;
 
-// AUTO-DETECT ALL IMAGES IN GALLERY FOLDER
+// LOAD IMAGES FROM AUTO-GENERATED LIST
 async function loadGallery() {
-    console.log('🔄 AUTO-SCANNING FOR IMAGES...');
+    console.log('🔄 LOADING GALLERY FROM IMAGE LIST...');
     
     const galleryGrid = document.getElementById('galleryGrid');
     if (!galleryGrid) return;
@@ -15,39 +15,21 @@ async function loadGallery() {
     
     try {
         const baseUrl = '/WebSys-LAB2';
-        const imageExtensions = ['jpg', 'jpeg', 'png', 'gif', 'webp', 'JPG', 'JPEG', 'PNG', 'GIF', 'WEBP', 'heic', 'HEIC'];
+        
+        // USE THE AUTO-GENERATED IMAGE LIST
+        if (typeof galleryImages === 'undefined') {
+            galleryGrid.innerHTML = `<div class="gallery-empty"><i class="fas fa-camera"></i><h3>IMAGE LIST NOT FOUND</h3><p>WAITING FOR GITHUB ACTION TO RUN...</p></div>`;
+            return;
+        }
         
         currentImages = [];
         
-        
-        const commonNames = [
-            'day'
-        ];
-        
-        const imageFiles = [];
-        
-        // CHECK ALL COMBINATIONS
-        for (const name of commonNames) {
-            for (const ext of imageExtensions) {
-                const filename = `${name}.${ext}`;
-                const imgUrl = `${baseUrl}/images/gallery/${filename}`;
-                
-                try {
-                    const res = await fetch(imgUrl, { method: 'HEAD' });
-                    if (res.ok) {
-                        imageFiles.push(filename);
-                        console.log(`✅ FOUND: ${filename}`);
-                        break;
-                    }
-                } catch (e) {}
-            }
-        }
-        
-        // CONVERT TO IMAGE OBJECTS
-        for (let i = 0; i < imageFiles.length; i++) {
-            const filename = imageFiles[i];
+        // CONVERT FILENAMES TO IMAGE OBJECTS
+        for (let i = 0; i < galleryImages.length; i++) {
+            const filename = galleryImages[i];
             const imgUrl = `${baseUrl}/images/gallery/${filename}`;
             
+            // GET FILE DATE
             let fileDate = 'UNKNOWN';
             try {
                 const res = await fetch(imgUrl, { method: 'HEAD' });
@@ -59,12 +41,18 @@ async function loadGallery() {
                 }
             } catch (e) {}
             
+            // CREATE DISPLAY NAME FROM FILENAME
+            let displayName = filename.split('.')[0];
+            displayName = displayName.replace(/[_-]/g, ' ');
+            
             currentImages.push({
                 url: imgUrl,
                 filename: filename,
-                displayName: filename.split('.')[0].replace(/[_-]/g, ' '),
+                displayName: displayName,
                 date: fileDate
             });
+            
+            console.log(`✅ LOADED: ${filename}`);
         }
         
         // SORT BY DATE (NEWEST FIRST)
