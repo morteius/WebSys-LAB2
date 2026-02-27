@@ -84,14 +84,14 @@ Two students documenting their daily lives, coding journey, and everything in be
 
 <div align="center">
   
-  | Color | Hex | Usage |
-  |-------|-----|-------|
-  | <img src="https://via.placeholder.com/20/89c4f4/89c4f4?text=+" width="20" height="20" style="border-radius: 4px;" /> Baby Blue | `#89c4f4` | Buttons, accents, hover states |
-  | <img src="https://via.placeholder.com/20/5f9ea0/5f9ea0?text=+" width="20" height="20" style="border-radius: 4px;" /> Baby Blue Dark | `#5f9ea0` | Secondary accents |
-  | <img src="https://via.placeholder.com/20/b8d9f5/b8d9f5?text=+" width="20" height="20" style="border-radius: 4px;" /> Baby Blue Light | `#b8d9f5` | Borders, dividers |
-  | <img src="https://via.placeholder.com/20/e6f0fa/e6f0fa?text=+" width="20" height="20" style="border-radius: 4px;" /> Baby Blue BG | `#e6f0fa` | Background gradient |
-  | <img src="https://via.placeholder.com/20/2c3e50/2c3e50?text=+" width="20" height="20" style="border-radius: 4px;" /> Text Dark | `#2c3e50` | Main text |
-  | <img src="https://via.placeholder.com/20/ffffff/ffffff?text=+" width="20" height="20" style="border-radius: 4px;" /> White | `#ffffff` | Cards, contrast |
+| Color | Hex | Usage |
+|-------|-----|-------|
+| <span style="display:inline-block; width:20px; height:20px; background:#89c4f4; border-radius:4px;"></span> Baby Blue | `#89c4f4` | Buttons, accents, hover states |
+| <span style="display:inline-block; width:20px; height:20px; background:#5f9ea0; border-radius:4px;"></span> Baby Blue Dark | `#5f9ea0` | Secondary accents |
+| <span style="display:inline-block; width:20px; height:20px; background:#b8d9f5; border-radius:4px;"></span> Baby Blue Light | `#b8d9f5` | Borders, dividers |
+| <span style="display:inline-block; width:20px; height:20px; background:#e6f0fa; border-radius:4px;"></span> Baby Blue BG | `#e6f0fa` | Background gradient |
+| <span style="display:inline-block; width:20px; height:20px; background:#2c3e50; border-radius:4px;"></span> Text Dark | `#2c3e50` | Main text |
+| <span style="display:inline-block; width:20px; height:20px; background:#ffffff; border:1px solid #b8d9f5; border-radius:4px;"></span> White | `#ffffff` | Cards, contrast |
 
 </div>
 
@@ -134,7 +134,7 @@ Two students documenting their daily lives, coding journey, and everything in be
   <table>
     <tr>
       <td align="center">
-        <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/People/Artist.png" width="80" />
+        <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/People/Woman%20Technologist.png" width="80" />
         <br>
         <h3>Elaine L. Paras</h3>
         <p><code>@doflsrn</code></p>
