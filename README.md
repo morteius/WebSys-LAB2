@@ -27,22 +27,8 @@ Baby Blue Light	#b8d9f5	Borders, dividers
 Baby Blue BG	#e6f0fa	Background gradient
 Text Dark	#2c3e50	Main text
 White	#ffffff	Cards, contrast
-📅 Blog Post Schedule
-Elaine
 
-    Day 1 (Feb 21) — Saturday Ganaps (ice cream, market, photobooth)
-
-    Day 2 (Feb 22) — Casual Sunday (rest, review, reading)
-
-    Day 3 (Feb 23) — Art Pop Market Adventure (souvenirs, art, street food)
-
-CJ
-
-    Day 1 (Feb 23) — Getting Started & Fable (project, market, gaming)
-
-    Day 2 (Feb 24) — Workout & Upset Stomach (exercise, coding, sickness)
-
-    Day 3 (Feb 25) — Art Pop & Fable Night (game art print, market, gaming)
+---
 
 🛠️ Built With
 
@@ -64,7 +50,7 @@ CJ
 
 📝 License
 
-This project is created for educational purposes as part of our Web Development course.
+This project is created for educational purposes as part of our Web Systems and Technologies course.
 💙 Acknowledgments
 
     Thanks to our professor for the project guidance
