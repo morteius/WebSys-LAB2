@@ -5,3 +5,5 @@ const galleryImages = [
   'day2_photobooth3.jpeg',
   'day2_photobooth2.jpeg',
 ];
+
+// TOTAL: 4 IMAGES
