@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found</title>
+    <meta name="color-scheme" content="light only">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💙</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .error-container {
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+        }
+        .error-code {
+            font-size: 8rem;
+            font-weight: 700;
+            color: var(--baby-300);
+            line-height: 1;
+            text-shadow: 0 10px 20px rgba(137,196,244,0.3);
+        }
+        .error-message {
+            font-size: 1.5rem;
+            color: var(--baby-500);
+            margin-bottom: 1rem;
+        }
+        .error-detail {
+            color: var(--baby-400);
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+        .redirect-message {
+            background: var(--baby-100);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            margin: 2rem 0;
+            border: 1px solid var(--baby-200);
+            font-weight: 500;
+        }
+        .countdown {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--baby-300);
+            margin: 0 0.5rem;
+        }
+        .loader {
+            border: 4px solid var(--baby-100);
+            border-top: 4px solid var(--baby-300);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 2rem auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .suggestions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- NAV BAR -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-blog"></i>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="student1_elaine/main.html">Elaine</a></li>
+                <li><a href="student2_cj/main.html">CJ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="error-container">
+            <div class="error-code">404</div>
+            <div class="error-message">PAGE NOT FOUND</div>
+            <div class="error-detail" id="errorPath">Checking if file exists...</div>
+            
+            <div class="redirect-message" id="redirectMessage">
+                <span>CHECKING AVAILABLE PAGES</span>
+            </div>
+            
+            <div class="loader" id="loader"></div>
+            
+            <div id="suggestions" class="suggestions">
+                <a href="index.html" class="btn-primary">GO HOME</a>
+                <a href="student1_elaine/main.html" class="btn-secondary">ELAINE'S PORTFOLIO</a>
+                <a href="student2_cj/main.html" class="btn-secondary">CJ'S PORTFOLIO</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // GET BROKEN LINK
+        const brokenPath = window.location.pathname;
+        const repoName = brokenPath.split('/')[1];
+        const baseUrl = repoName ? `/${repoName}` : '';
+        
+        document.getElementById('errorPath').innerHTML = 
+            `You tried to access: <strong>${brokenPath}</strong>`;
+
+        // CHECK IF PAGE EXISTS
+        async function checkPageExists(path) {
+            try {
+                const response = await fetch(path, { method: 'HEAD' });
+                return response.ok;
+            } catch {
+                return false;
+            }
+        }
+
+        // FIND SIMILAR PAGES
+        async function findSimilarPages() {
+            const pathParts = brokenPath.split('/');
+            const fileName = pathParts[pathParts.length - 1];
+            const possiblePages = [];
+            
+            // CHECK IF IT'S A BLOG POST
+            if (fileName.includes('day')) {
+                const dayMatch = fileName.match(/day(\d+)\.html/);
+                if (dayMatch) {
+                    const dayNum = parseInt(dayMatch[1]);
+                    
+                    // CHECK NEARBY DAYS
+                    for (let i = dayNum - 3; i <= dayNum + 3; i++) {
+                        if (i > 0 && i !== dayNum) {
+                            // CHECK CJ'S BLOG
+                            const cjPath = `${baseUrl}/student2_cj/blog/day${i}.html`;
+                            if (await checkPageExists(cjPath)) {
+                                possiblePages.push({
+                                    text: `CJ Day ${i}`,
+                                    url: cjPath,
+                                    type: 'cj'
+                                });
+                            }
+                            // CHECK ELAINE'S BLOG
+                            const elainePath = `${baseUrl}/student1_elaine/blog/day${i}.html`;
+                            if (await checkPageExists(elainePath)) {
+                                possiblePages.push({
+                                    text: `Elaine Day ${i}`,
+                                    url: elainePath,
+                                    type: 'elaine'
+                                });
+                            }
+                        }
+                    }
+                }
+            }
+            
+            return possiblePages;
+        }
+
+        // AUTO-REDIRECT IF SINGLE MATCH FOUND
+        async function handleRedirect() {
+            const redirectMsg = document.getElementById('redirectMessage');
+            const loader = document.getElementById('loader');
+            const suggestionsDiv = document.getElementById('suggestions');
+            
+            // CHECK IF THE FILE EXISTS BUT PATH IS WRONG
+            const fileName = brokenPath.split('/').pop();
+            let foundPath = null;
+            
+            // SEARCH IN CJ'S BLOG
+            for (let i = 1; i <= 10; i++) {
+                const testPath = `${baseUrl}/student2_cj/blog/day${i}.html`;
+                if (testPath.endsWith(fileName) && await checkPageExists(testPath)) {
+                    foundPath = testPath;
+                    break;
+                }
+            }
+
+            // SEARCH IN ELAINE'S BLOG
+            if (!foundPath) {
+                for (let i = 1; i <= 10; i++) {
+                    const testPath = `${baseUrl}/student1_elaine/blog/day${i}.html`;
+                    if (testPath.endsWith(fileName) && await checkPageExists(testPath)) {
+                        foundPath = testPath;
+                        break;
+                    }
+                }
+            }
+            
+            if (foundPath) {
+                redirectMsg.innerHTML = `FOUND! Redirecting to correct page...`;
+                setTimeout(() => {
+                    window.location.href = foundPath;
+                }, 2000);
+                return;
+            }
+            
+            // FIND SIMILAR PAGES
+            const similarPages = await findSimilarPages();
+            
+            if (similarPages.length > 0) {
+                redirectMsg.innerHTML = `SIMILAR PAGES FOUND:`;
+                
+                // ADD SUGGESTIONS
+                similarPages.slice(0, 4).forEach(page => {
+                    const btn = document.createElement('a');
+                    btn.href = page.url;
+                    btn.className = page.type === 'cj' ? 'btn-secondary' : 'btn-primary';
+                    btn.style.margin = '0.5rem';
+                    btn.innerHTML = page.text;
+                    suggestionsDiv.appendChild(btn);
+                });
+            } else {
+                redirectMsg.innerHTML = `NO SIMILAR PAGES FOUND`;
+            }
+            
+            loader.style.display = 'none';
+        }
+
+        // RUN CHECK
+        handleRedirect();
+    </script>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <h3>CJ & Elaine</h3>
+                <p>two students, two stories, one blog.</p>
+            </div>
+            <div class="footer-social">
+                <h4>connect with us</h4>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/mortieus" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/morteius/" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="https://github.com/morteius" class="social-icon"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 CJ & Elaine · duo project</p>
+        </div>
+    </footer>
+</body>
+</html>
