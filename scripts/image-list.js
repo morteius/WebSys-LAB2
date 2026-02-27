@@ -1,5 +1,8 @@
+  // full media file names (with extensions)
+
 const galleryImages = [
-  // This file will be automatically updated by GitHub Actions
-  // when you add new images to /images/gallery/
+    'day2_photobooth1.jpeg',
+    'day2_photobooth3.jpeg',
+
 ];
 console.log('GALLERY LIST LOADED:', galleryImages.length, 'IMAGES');
