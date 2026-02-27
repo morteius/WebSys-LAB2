@@ -10,6 +10,7 @@
     padding: 4rem 2rem 2rem;
     background: linear-gradient(135deg, var(--baby-600), var(--baby-500), var(--baby-400));
     color: white;
+    flex-shrink: 0;
 }
 
 .archive-header-simple h1 {
@@ -42,6 +43,7 @@
     padding: 0 2rem;
     width: 100%;
     box-sizing: border-box;
+    flex-shrink: 0;
 }
 
 .archive-search {
@@ -77,21 +79,48 @@
     box-shadow: 0 0 0 3px rgba(137,196,244,0.2);
 }
 
+/* SCROLLABLE LIST CONTAINER */
 .archive-list-container {
     max-width: 900px;
-    margin: 0 auto 2rem;
+    margin: 0 auto;
     padding: 0 2rem;
-    flex: 1;
     width: 100%;
     box-sizing: border-box;
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .archive-list {
     background: white;
     border-radius: 20px;
     box-shadow: var(--shadow-sm);
-    overflow: hidden;
     border: 1px solid var(--baby-200);
+    overflow-y: auto;
+    max-height: 100%;
+    scrollbar-width: thin;
+    scrollbar-color: var(--baby-300) var(--baby-100);
+}
+
+/* CUSTOM SCROLLBAR */
+.archive-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.archive-list::-webkit-scrollbar-track {
+    background: var(--baby-100);
+    border-radius: 0 20px 20px 0;
+}
+
+.archive-list::-webkit-scrollbar-thumb {
+    background: var(--baby-300);
+    border-radius: 4px;
+}
+
+.archive-list::-webkit-scrollbar-thumb:hover {
+    background: var(--baby-400);
 }
 
 .archive-list-item {
@@ -196,8 +225,8 @@
 }
 
 .footer {
-    margin-top: auto;
     flex-shrink: 0;
+    margin-top: 2rem;
 }
 
 @media (max-width: 992px) {
@@ -218,6 +247,10 @@
     .archive-search-container,
     .archive-list-container {
         padding: 0 1.5rem;
+    }
+    
+    .archive-list-container {
+        margin-bottom: 1rem;
     }
     
     .archive-list-item {
@@ -271,7 +304,6 @@
     
     .archive-list-item {
         padding: 0.8rem 1rem;
-        flex-wrap: nowrap;
     }
     
     .archive-list-item:hover {
@@ -286,11 +318,7 @@
     }
     
     .archive-item-title {
-        font-size: 1rem;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        max-width: 180px;
+        font-size: 0.95rem;
     }
     
     .archive-item-meta {
@@ -304,10 +332,6 @@
 }
 
 @media (max-width: 360px) {
-    .archive-item-title {
-        max-width: 140px;
-    }
-    
     .archive-day-badge {
         width: 30px;
         height: 30px;
