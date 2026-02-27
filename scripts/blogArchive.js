@@ -49,7 +49,13 @@ async function loadBlogArchive(person) {
     
     if (!archiveList) return;
     
-    archiveList.innerHTML = '<div class="archive-loading"><i class="fas fa-spinner fa-spin"></i><p>SCANNING MEMORIES...</p></div>';
+    // CREATE NEW STRUCTURE IF NEEDED
+    if (!archiveList.querySelector('.archive-list-rows')) {
+        archiveList.innerHTML = '<div class="archive-list-rows"></div>';
+    }
+    
+    const rowsContainer = archiveList.querySelector('.archive-list-rows');
+    rowsContainer.innerHTML = '<div class="archive-loading"><i class="fas fa-spinner fa-spin"></i><p>SCANNING MEMORIES...</p></div>';
     
     try {
         currentPosts = [];
@@ -86,7 +92,7 @@ async function loadBlogArchive(person) {
         renderArchiveList();
         
     } catch (error) {
-        archiveList.innerHTML = `<div class="archive-loading"><i class="fas fa-exclamation-circle"></i><p>ERROR LOADING POSTS</p></div>`;
+        rowsContainer.innerHTML = `<div class="archive-loading"><i class="fas fa-exclamation-circle"></i><p>ERROR LOADING POSTS</p></div>`;
     }
 }
 
@@ -94,12 +100,15 @@ function renderArchiveList() {
     const archiveList = document.getElementById('archiveList');
     if (!archiveList) return;
     
+    const rowsContainer = archiveList.querySelector('.archive-list-rows');
+    if (!rowsContainer) return;
+    
     if (filteredPosts.length === 0) {
-        archiveList.innerHTML = `<div class="archive-loading"><i class="fas fa-book-open"></i><p>NO POSTS YET</p></div>`;
+        rowsContainer.innerHTML = `<div class="archive-loading"><i class="fas fa-book-open"></i><p>NO POSTS YET</p></div>`;
         return;
     }
     
-    archiveList.innerHTML = '';
+    rowsContainer.innerHTML = '';
     
     filteredPosts.forEach(post => {
         const item = document.createElement('a');
@@ -117,7 +126,7 @@ function renderArchiveList() {
             <div class="archive-item-arrow"><i class="fas fa-chevron-right"></i></div>
         `;
         
-        archiveList.appendChild(item);
+        rowsContainer.appendChild(item);
     });
 }
 
