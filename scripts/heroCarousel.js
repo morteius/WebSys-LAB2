@@ -2,7 +2,7 @@ console.log('HERO CAROUSEL LOADED');
 
 class HeroCarousel {
     constructor() {
-        // USE ABSOLUTE PATHS - always works regardless of page location
+        // USE CORRECT ABSOLUTE PATHS with /WebSys-LAB2/
         this.images = [
             '/WebSys-LAB2/images/blogPics/day2_photobooth1.jpeg',
             '/WebSys-LAB2/images/blogPics/day2_photobooth2.jpeg',
@@ -21,6 +21,9 @@ class HeroCarousel {
             return;
         }
         
+        // Set initial image
+        this.heroImage.src = this.images[0];
+        
         this.preloadImages();
         this.init();
     }
@@ -33,7 +36,6 @@ class HeroCarousel {
     }
     
     init() {
-        this.heroImage.src = this.images[0];
         this.heroImage.style.transition = 'opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1)';
         this.heroImage.style.opacity = '1';
         
