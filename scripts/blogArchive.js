@@ -7,8 +7,9 @@ const baseUrl = '/WebSys-LAB2';
 async function fetchBlogPost(student, day) {
     try {
         const studentPath = student === 'cj' ? 'student2_cj' : 'student1_elaine';
-        // FIXED PATH - added /pages/
+        // FIXED: Added /pages/ to the path
         const url = `${baseUrl}/pages/${studentPath}/blog/day${day}.html`;
+        console.log('Fetching:', url); // Debug log
         
         const response = await fetch(url);
         if (!response.ok) return null;
@@ -34,10 +35,11 @@ async function fetchBlogPost(student, day) {
             day,
             title,
             date,
-            // FIXED PATH - added /pages/
+            // FIXED: Added /pages/ to the URL
             url: `${baseUrl}/pages/${studentPath}/blog/day${day}.html`
         };
     } catch (error) {
+        console.log('Fetch error:', error);
         return null;
     }
 }
@@ -64,7 +66,7 @@ async function loadBlogArchive(person) {
         let consecutiveMisses = 0;
         const MAX_MISSES = 3;
         
-        while (consecutiveMisses < MAX_MISSES) {
+        while (consecutiveMisses < MAX_MISSES && day <= 30) {
             const post = await fetchBlogPost(person, day);
             if (post) {
                 currentPosts.push(post);
@@ -75,8 +77,6 @@ async function loadBlogArchive(person) {
                 console.log(`❌ MISSING DAY ${day} (${consecutiveMisses}/${MAX_MISSES})`);
             }
             day++;
-            
-            if (day > 9999) break;
         }
         
         currentPosts.sort((a, b) => a.day - b.day);
@@ -92,6 +92,7 @@ async function loadBlogArchive(person) {
         renderArchiveList();
         
     } catch (error) {
+        console.error('Archive error:', error);
         rowsContainer.innerHTML = `<div class="archive-loading"><i class="fas fa-exclamation-circle"></i><p>ERROR LOADING POSTS</p></div>`;
     }
 }

@@ -2,18 +2,24 @@ console.log('HERO CAROUSEL LOADED');
 
 class HeroCarousel {
     constructor() {
+        // USE ABSOLUTE PATHS - always works regardless of page location
         this.images = [
-            '../images/blogPics/day2_photobooth1.jpeg',
-            '../images/blogPics/day2_photobooth2.jpeg',
-            '../images/blogPics/day2_photobooth3.jpeg',
-            '../images/blogPics/day2_photobooth4.jpeg'
+            '/WebSys-LAB2/images/blogPics/day2_photobooth1.jpeg',
+            '/WebSys-LAB2/images/blogPics/day2_photobooth2.jpeg',
+            '/WebSys-LAB2/images/blogPics/day2_photobooth3.jpeg',
+            '/WebSys-LAB2/images/blogPics/day2_photobooth4.jpeg'
         ];
+        
+        console.log('Image paths:', this.images);
         
         this.currentIndex = 0;
         this.heroImage = document.querySelector('.hero-image img');
         this.imageWrapper = document.querySelector('.hero-image-wrapper');
         
-        if (!this.heroImage) return;
+        if (!this.heroImage) {
+            console.log('No hero image found on this page');
+            return;
+        }
         
         this.preloadImages();
         this.init();
