@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CJ Mape · Portfolio</title>
+    <title>Elaine Paras · Portfolio</title>
     <meta name="color-scheme" content="light only">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💙</text></svg>">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../../css/style.css">
 </head>
 <body>
 
     <!-- NAV BAR -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="../index.html" class="logo">
+            <a href="../../index.html" class="logo">
                 <i class="fas fa-blog"></i>
             </a>
             
@@ -27,17 +27,20 @@
                         </svg>
                     </a>
                 </li>
-                <li><a href="../index.html"><i class="fas fa-home"></i> Home</a></li>
-                <li><a href="main.html" class="active"><i class="fas fa-user"></i> My Portfolio</a></li>
+                <li><a href="../../index.html"><i class="fas fa-home"></i> Home</a></li>
                 <li><a href="about.html"><i class="fas fa-info-circle"></i> About Me</a></li>
-                <li><a href="blog/day1.html"><i class="fas fa-book"></i> My Blog</a></li>
-                <li><a href="../student1_elaine/main.html"><i class="fas fa-user-friends"></i> Elaine's Portfolio</a></li>
+                <li><a href="../gallery.html"><i class="fas fa-images"></i> Gallery</a></li>
+                <li><a href="elaine-blog-archive.html"><i class="fas fa-book"></i> My Blog</a></li>
+                <li><a href="main.html" class="active"><i class="fas fa-user"></i> My Portfolio</a></li>
+                <li><a href="../student2_cj/main.html"><i class="fas fa-user-friends"></i> CJ's Portfolio</a></li>
             </ul>
             
             <ul class="nav-links">
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="../student1_elaine/main.html">Elaine</a></li>
-                <li><a href="main.html" class="active">CJ</a></li>
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="about.html">About Me</a></li>
+                <li><a href="../gallery.html">Gallery</a></li>
+                <li><a href="main.html" class="active">Elaine</a></li>
+                <li><a href="../student2_cj/main.html">CJ</a></li>
             </ul>
             
             <div class="menu-button" onclick="showSidebar()">
@@ -52,14 +55,14 @@
     <section class="profile-hero">
         <div class="profile-hero-content">
             <div class="profile-hero-avatar">
-                <img src="../images/cj.jpeg" alt="CJ Mape" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+                <img src="../../images/elaine.jpeg" alt="Elaine Paras" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
             </div>
-            <h1 class="profile-hero-name">Charles James G. Mape</h1>
-            <p class="profile-hero-tagline">BS Information Technology · <span class="elaine-age">0</span> · Bulan, Sorsogon</p>
+            <h1 class="profile-hero-name">Elaine L. Paras</h1>
+            <p class="profile-hero-tagline">BS Information Technology · <span class="elaine-age">0</span> · Camalig, Albay</p>
             <div class="profile-hero-social">
-                <a href="https://www.facebook.com/mortieus" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://www.instagram.com/morteius/" class="social-icon"><i class="fab fa-instagram"></i></a>
-                <a href="https://github.com/morteius" class="social-icon"><i class="fab fa-github"></i></a>
+                <a href="https://www.facebook.com/E.0807209145.0" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/doflsrn/" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="https://github.com/elaineparas" class="social-icon"><i class="fab fa-github"></i></a>
             </div>
         </div>
     </section>
@@ -72,11 +75,11 @@
                 <div class="stat-label">Blog Posts</div>
             </div>
             <div class="stat-item">
-                <div class="stat-value">5</div>
+                <div class="stat-value">8</div>
                 <div class="stat-label">Hobbies</div>
             </div>
             <div class="stat-item">
-                <div class="stat-value"><span class="cj-age">0</span></div>
+                <div class="stat-value"><span class="elaine-age">0</span></div>
                 <div class="stat-label">Years Old</div>
             </div>
         </div>
@@ -93,12 +96,12 @@
             <div class="about-preview-grid">
                 <div class="about-preview-card">
                     <i class="fas fa-quote-right"></i>
-                    <p class="about-quote">"passionate about coding, gaming, and documenting the journey along the way."</p>
+                    <p class="about-quote">"passionate about learning, creating, and sharing moments through words and art."</p>
                 </div>
                 
                 <div class="about-preview-buttons">
                     <a href="about.html" class="btn-primary"><i class="fas fa-info-circle"></i> Read Full About Me</a>
-                    <a href="blog/day1.html" class="btn-secondary"><i class="fas fa-book-open"></i> Browse My Blog</a>
+                    <a href="../student1_elaine/elaine-blog-archive.html" class="btn-secondary"><i class="fas fa-book-open"></i> Browse My Blog</a>
                 </div>
             </div>
         </div>
@@ -111,16 +114,15 @@
                 <h2>My latest posts</h2>
                 <p>recent entries from my daily blog</p>
             </div>
-            
             <div class="profile-blogs-grid">
                 <div class="blog-card">
                     <div class="blog-card-date">
                         <i class="fas fa-calendar"></i> February 20, 2026
                     </div>
-                    <h3 class="blog-card-title">Day 1: Palengke with Elaine</h3>
-                    <p class="blog-card-excerpt">After online class with Ma'am Jevah, went to the farmer's market with Elaine to buy veggies for our lunch plan. Had ice cream and played Fable at night...</p>
+                    <h3 class="blog-card-title">Day 1: Friday Market Day</h3>
+                    <p class="blog-card-excerpt">We were tasked to write a blog post about our life. Sakto at may lakad ako ngayong friday, so I thought it would be perfect to...</p>
                     <div class="blog-card-footer">
-                        <span class="blog-card-tag"><i class="fas fa-tag"></i> palengke, gaming</span>
+                        <span class="blog-card-tag"><i class="fas fa-tag"></i> adventures</span>
                         <a href="blog/day1.html" class="blog-card-link">Read More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
@@ -128,10 +130,10 @@
                     <div class="blog-card-date">
                         <i class="fas fa-calendar"></i> February 21, 2026
                     </div>
-                    <h3 class="blog-card-title">Day 2: Lunch with Classmates & Photobooth</h3>
-                    <p class="blog-card-excerpt">After Sir Richard's class, had lunch with classmates sharing food. Ma'am Pauline joined and brought ice cream. Went to Ayala Mall and took photobooth with Elaine...</p>
+                    <h3 class="blog-card-title">Day 2: Saturday Ganaps</h3>
+                    <p class="blog-card-excerpt">Nailabas sa gc ang biglaang plano ni Natalie. We had lunch together at may pa-ice cream pa...</p>
                     <div class="blog-card-footer">
-                        <span class="blog-card-tag"><i class="fas fa-tag"></i> lunch, photobooth</span>
+                        <span class="blog-card-tag"><i class="fas fa-tag"></i> personal</span>
                         <a href="blog/day2.html" class="blog-card-link">Read More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
@@ -139,10 +141,10 @@
                     <div class="blog-card-date">
                         <i class="fas fa-calendar"></i> February 22, 2026
                     </div>
-                    <h3 class="blog-card-title">Day 3: Upset Stomach & Bed Rot</h3>
-                    <p class="blog-card-excerpt">Had upset stomach from too much peanut butter. Weak appetite, bed rot all day, reviewed for quizzes, and played a little Fable before sleeping...</p>
+                    <h3 class="blog-card-title">Day 3: Casual Sunday</h3>
+                    <p class="blog-card-excerpt">Sunday was a quiet and relaxing day. Sometimes you just need those days to recharge and reset....</p>
                     <div class="blog-card-footer">
-                        <span class="blog-card-tag"><i class="fas fa-tag"></i> sick, rest</span>
+                        <span class="blog-card-tag"><i class="fas fa-tag"></i> adventures</span>
                         <a href="blog/day3.html" class="blog-card-link">Read More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
@@ -164,24 +166,44 @@
             
             <div class="interests-grid">
                 <div class="interest-item">
-                    <div class="interest-icon">🥊</div>
-                    <span>Boxing</span>
+                    <div class="interest-icon">🏐</div>
+                    <span>Volleyball</span>
                 </div>
                 <div class="interest-item">
                     <div class="interest-icon">🎨</div>
-                    <span>Art</span>
+                    <span>Coloring</span>
                 </div>
                 <div class="interest-item">
-                    <div class="interest-icon">🎮</div>
-                    <span>Gaming</span>
+                    <div class="interest-icon">📖</div>
+                    <span>Reading</span>
                 </div>
                 <div class="interest-item">
-                    <div class="interest-icon">🎸</div>
-                    <span>Guitar</span>
+                    <div class="interest-icon">🎬</div>
+                    <span>Films</span>
+                </div>
+                <div class="interest-item">
+                    <div class="interest-icon">🏃</div>
+                    <span>Running</span>
                 </div>
                 <div class="interest-item">
                     <div class="interest-icon">🎵</div>
                     <span>Music</span>
+                </div>
+                <div class="interest-item">
+                    <div class="interest-icon">🧩</div>
+                    <span>Crossword</span>
+                </div>
+                <div class="interest-item">
+                    <div class="interest-icon">📝</div>
+                    <span>Journaling</span>
+                </div>
+                <div class="interest-item">
+                    <div class="interest-icon">✈️</div>
+                    <span>Travelling</span>
+                </div>
+                <div class="interest-item">
+                    <div class="interest-icon">🚗</div>
+                    <span>Automobiles</span>
                 </div>
             </div>
         </div>
@@ -191,61 +213,41 @@
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-logo">
-                <h3>CJ Mape</h3>
-                <p>music, gaming, and everything in between.</p>
+                <h3>Elaine Paras</h3>
+                <p>writing my story, one blog post at a time.</p>
             </div>
             
             <div class="footer-social">
                 <h4>connect with me</h4>
                 <div class="social-icons">
-                    <a href="https://www.facebook.com/mortieus" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.instagram.com/morteius/" class="social-icon"><i class="fab fa-instagram"></i></a>
-                    <a href="https://github.com/morteius" class="social-icon"><i class="fab fa-github"></i></a>
+                    <a href="https://www.facebook.com/E.0807209145.0" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/doflsrn/" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="https://github.com/elaineparas" class="social-icon"><i class="fab fa-github"></i></a>
                 </div>
             </div>
             
             <div class="footer-links">
                 <h4>quick links</h4>
                 <ul>
-                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../../index.html">Home</a></li>
                     <li><a href="about.html">About Me</a></li>
-                    <li><a href="blog/day1.html">My Blog</a></li>
-                    <li><a href="../student1_elaine/main.html">Elaine's Portfolio</a></li>
+                    <li><a href="elaine-blog-archive.html">My Blog</a></li>
+                    <li><a href="../../pages/gallery.html">Gallery</a></li>
+                    <li><a href="../student2_cj/main.html">CJ's Portfolio</a></li>
                 </ul>
             </div>
         </div>
         
         <div class="footer-bottom">
-            <p>&copy; 2026 CJ Mape · all rights reserved</p>
+            <p>&copy; <span class="copyright-year">1999</span> Elaine Paras · all rights reserved</p>
         </div>
     </footer>
 
     <!-- SCRIPTS -->
-    <script>
-        function showSidebar() {
-            document.getElementById('sidebar').classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-        
-        function hideSidebar() {
-            document.getElementById('sidebar').classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-        
-        // close sidebar when clicking outside
-        document.addEventListener('click', function(event) {
-            const sidebar = document.getElementById('sidebar');
-            const menuButton = document.querySelector('.menu-button');
-            
-            if (sidebar.classList.contains('active') && 
-                !sidebar.contains(event.target) && 
-                !menuButton.contains(event.target)) {
-                hideSidebar();
-            }
-        });
-    </script>
-    <script src="../scripts/blogCounter.js"></script>
-    <script src="../scripts/bdayCounter.js"></script>
-    <script src="../scripts/recentPosts.js"></script>
+    <script src="../../scripts/sidebar.js"></script>
+    <script src="../../scripts/blogCounter.js"></script>
+    <script src="../../scripts/bdayCounter.js"></script>
+    <script src="../../scripts/recentPosts.js"></script>
+    <script src="../../scripts/copyright.js"></script>
 </body>
 </html>

@@ -1,0 +1,408 @@
+.archive-page {
+    min-height: 100vh;
+    background: linear-gradient(145deg, var(--baby-100), #d9e9fa);
+    display: flex;
+    flex-direction: column;
+}
+
+.archive-header-simple {
+    text-align: center;
+    padding: 4rem 2rem 2rem;
+    background: linear-gradient(135deg, var(--baby-600), var(--baby-500), var(--baby-400));
+    color: white;
+    flex-shrink: 0;
+}
+
+.archive-header-simple h1 {
+    font-size: 2.8rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.archive-header-simple p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin-bottom: 1.5rem;
+}
+
+.archive-stats-simple {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    font-size: 1rem;
+}
+
+.archive-stats-simple i {
+    color: var(--baby-300);
+    margin-right: 0.5rem;
+}
+
+.archive-search-container {
+    max-width: 900px;
+    margin: 2rem auto 1rem;
+    padding: 0 2rem;
+    width: 100%;
+    box-sizing: border-box;
+    flex-shrink: 0;
+}
+
+.archive-search {
+    position: relative;
+    width: 100%;
+}
+
+.archive-search i {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--baby-300);
+    font-size: 1rem;
+    z-index: 1;
+}
+
+.archive-search input {
+    width: 100%;
+    padding: 1rem 1rem 1rem 2.5rem;
+    border: 1px solid var(--baby-200);
+    border-radius: 50px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    background: white;
+    box-shadow: var(--shadow-sm);
+    box-sizing: border-box;
+}
+
+.archive-search input:focus {
+    outline: none;
+    border-color: var(--baby-300);
+    box-shadow: 0 0 0 3px rgba(137,196,244,0.2);
+}
+
+.archive-list-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    width: 100%;
+    box-sizing: border-box;
+    flex: 0 0 auto;
+    height: 500px;
+}
+
+.archive-list {
+    background: white;
+    border-radius: 20px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--baby-200);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.archive-list-rows {
+    flex: 1;
+    overflow-y: scroll;
+    padding: 0;
+    scrollbar-width: auto;
+    scrollbar-color: var(--baby-300) var(--baby-100);
+}
+
+.archive-list-rows::-webkit-scrollbar {
+    width: 14px;
+}
+
+.archive-list-rows::-webkit-scrollbar-track {
+    background: var(--baby-100);
+    border-radius: 0 20px 20px 0;
+    border-left: 2px solid var(--baby-200);
+}
+
+.archive-list-rows::-webkit-scrollbar-thumb {
+    background: var(--baby-300);
+    border-radius: 7px;
+    border: 3px solid var(--baby-100);
+    min-height: 60px;
+}
+
+.archive-list-rows::-webkit-scrollbar-thumb:hover {
+    background: var(--baby-400);
+}
+
+.archive-list-rows {
+    scrollbar-width: auto;
+    scrollbar-color: var(--baby-300) var(--baby-100);
+}
+
+.archive-back-container {
+    max-width: 800px;
+    margin: 2rem auto 0;
+    padding: 0 2rem;
+}
+
+.archive-back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.8rem 2rem;
+    background: linear-gradient(145deg, var(--baby-300), var(--baby-400));
+    color: white;
+    text-decoration: none;
+    border-radius: 40px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: var(--transition);
+    border: 1px solid rgba(255,255,255,0.2);
+    box-shadow: 0 5px 15px rgba(137,196,244,0.3);
+}
+
+.archive-back-btn:hover {
+    transform: translateX(-5px);
+    box-shadow: 0 10px 25px rgba(95,158,160,0.4);
+    background: linear-gradient(145deg, var(--baby-400), var(--baby-300));
+}
+
+.archive-back-btn i {
+    font-size: 1rem;
+}
+
+.archive-list-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid var(--baby-100);
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.2s ease;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.archive-list-item:last-child {
+    border-bottom: none;
+}
+
+.archive-list-item:hover {
+    background: var(--baby-100);
+    padding-left: 2.5rem;
+}
+
+.archive-day-badge {
+    background: var(--baby-300);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-right: 1.5rem;
+    flex-shrink: 0;
+    transition: var(--transition);
+}
+
+.archive-list-item:hover .archive-day-badge {
+    background: var(--baby-400);
+    transform: scale(1.05);
+}
+
+.archive-item-content {
+    flex: 1;
+}
+
+.archive-item-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--baby-500);
+    margin-bottom: 0.2rem;
+}
+
+.archive-item-meta {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 0.85rem;
+    color: var(--baby-400);
+}
+
+.archive-item-meta i {
+    color: var(--baby-300);
+    width: 14px;
+    margin-right: 0.3rem;
+}
+
+.archive-item-arrow {
+    color: var(--baby-300);
+    font-size: 1rem;
+    margin-left: 1rem;
+    opacity: 0;
+    transition: all 0.2s ease;
+}
+
+.archive-list-item:hover .archive-item-arrow {
+    opacity: 1;
+    transform: translateX(5px);
+}
+
+.archive-loading {
+    text-align: center;
+    padding: 4rem;
+    color: var(--baby-400);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    height: 100%;
+    justify-content: center;
+}
+
+.archive-loading i {
+    font-size: 2.5rem;
+    color: var(--baby-300);
+    animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.footer {
+    flex-shrink: 0;
+    margin-top: 2rem;
+}
+
+@media (max-width: 992px) {
+    .archive-header-simple h1 {
+        font-size: 2.4rem;
+    }
+    
+    .archive-list-container {
+        height: 450px;
+    }
+}
+
+@media (max-width: 768px) {
+    .archive-header-simple {
+        padding: 3rem 1.5rem 2rem;
+    }
+    
+    .archive-header-simple h1 {
+        font-size: 2.2rem;
+    }
+    
+    .archive-search-container,
+    .archive-list-container {
+        padding: 0 1.5rem;
+    }
+    
+    .archive-list-container {
+        height: 400px;
+    }
+    
+    .archive-list-item {
+        padding: 0.9rem 1.5rem;
+    }
+    
+    .archive-list-item:hover {
+        padding-left: 2rem;
+    }
+    
+    .archive-day-badge {
+        width: 35px;
+        height: 35px;
+        font-size: 0.95rem;
+        margin-right: 1rem;
+    }
+    
+    .archive-item-title {
+        font-size: 1rem;
+    }
+    
+    .archive-item-meta {
+        flex-direction: column;
+        gap: 0.2rem;
+    }
+    
+    .archive-list-rows::-webkit-scrollbar {
+        width: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .archive-header-simple {
+        padding: 2.5rem 1rem 1.5rem;
+    }
+    
+    .archive-header-simple h1 {
+        font-size: 1.8rem;
+    }
+    
+    .archive-header-simple p {
+        font-size: 1rem;
+    }
+    
+    .archive-stats-simple {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: center;
+    }
+    
+    .archive-search-container,
+    .archive-list-container {
+        padding: 0 1rem;
+    }
+    
+    .archive-list-container {
+        height: 350px;
+    }
+    
+    .archive-list-item {
+        padding: 0.8rem 1rem;
+    }
+    
+    .archive-list-item:hover {
+        padding-left: 1.3rem;
+    }
+    
+    .archive-day-badge {
+        width: 30px;
+        height: 30px;
+        font-size: 0.85rem;
+        margin-right: 0.8rem;
+    }
+    
+    .archive-item-title {
+        font-size: 0.9rem;
+    }
+    
+    .archive-item-meta {
+        font-size: 0.75rem;
+    }
+    
+    .archive-item-arrow {
+        font-size: 0.85rem;
+        margin-left: 0.5rem;
+    }
+    
+    .archive-list-rows::-webkit-scrollbar {
+        width: 10px;
+    }
+}
+
+@media (max-width: 360px) {
+    .archive-list-container {
+        height: 300px;
+    }
+    
+    .archive-day-badge {
+        width: 28px;
+        height: 28px;
+        font-size: 0.8rem;
+    }
+    
+    .archive-list-rows::-webkit-scrollbar {
+        width: 8px;
+    }
+}

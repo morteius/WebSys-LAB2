@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elaine's Blog Archive</title>
+    <meta name="color-scheme" content="light only">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💙</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/blog-archive.css">
+</head>
+<body class="archive-page">
+
+    <!-- NAV BAR -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../../index.html" class="logo">
+                <i class="fas fa-blog"></i>
+            </a>
+            
+            <ul class="sidebar" id="sidebar">
+                <li class="close-btn" onclick="hideSidebar()">
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960" width="28px" fill="#fff">
+                            <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                        </svg>
+                    </a>
+                </li>
+                <li><a href="../../index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="elaine-blog-archive.html" class="active"><i class="fas fa-book"></i> My Blog</a></li>
+                <li><a href="../gallery.html"><i class="fas fa-images"></i> Gallery</a></li>
+                <li><a href="../student1_elaine/main.html"><i class="fas fa-user"></i> Elaine</a></li>
+                <li><a href="../student2_cj/main.html"><i class="fas fa-user"></i> CJ</a></li>
+            </ul>
+            
+            <ul class="nav-links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="elaine-blog-archive.html" class="active">My Blog</a></li>
+                <li><a href="../gallery.html">Gallery</a></li>
+                <li><a href="../student1_elaine/main.html">Elaine</a></li>
+                <li><a href="../student2_cj/main.html">CJ</a></li>
+            </ul>
+            
+            <div class="menu-button" onclick="showSidebar()">
+                <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="#fff">
+                    <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/>
+                </svg>
+            </div>
+        </div>
+    </nav>
+
+    <div class="archive-header-simple">
+        <h1>Elaine's Blog Archive</h1>
+        <p>every moment, every memory</p>
+        <div class="archive-stats-simple" id="archiveStats">
+            <span><i class="fas fa-book-open"></i> <span id="postCount">0</span> posts</span>
+            <span><i class="fas fa-calendar"></i> latest: <span id="latestDate">—</span></span>
+        </div>
+    </div>
+
+    <div class="archive-back-container">
+        <a href="../student1_elaine/main.html" class="archive-back-btn">
+            <i class="fas fa-arrow-left"></i> BACK TO PORTFOLIO
+        </a>
+    </div>
+
+    <!-- SEARCH BAR -->
+    <div class="archive-search-container">
+        <div class="archive-search">
+            <i class="fas fa-search"></i>
+            <input type="text" id="searchPosts" placeholder="Search by title, day, or date...">
+        </div>
+    </div>
+
+    <!-- ARCHIVE LIST -->
+    <div class="archive-list-container">
+        <div class="archive-list" id="archiveList">
+            <div class="archive-loading">
+                <i class="fas fa-spinner fa-spin"></i>
+                <p>SCANNING MEMORIES...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <h3>Elaine's Blog</h3>
+                <p>writing my story, one blog post at a time.</p>
+            </div>
+            
+            <div class="footer-social">
+                <h4>connect with me</h4>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/E.0807209145.0" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/doflsrn/" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="https://github.com/elaineparas" class="social-icon"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h4>quick links</h4>
+                <ul>
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="about.html">About Me</a></li>
+                    <li><a href="elaine-blog-archive.html">My Blog</a></li>
+                    <li><a href="../../pages/gallery.html">Gallery</a></li>
+                    <li><a href="../student2_cj/main.html">CJ's Portfolio</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; <span class="copyright-year">1999</span> Elaine Paras · all rights reserved</p>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="../../scripts/sidebar.js"></script>
+    <script src="../../scripts/blogArchive.js"></script>
+    <script src="../../scripts/copyright.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof loadBlogArchive === 'function') {
+                loadBlogArchive('elaine').then(() => {
+                    if (typeof setupSearch === 'function') {
+                        setupSearch();
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

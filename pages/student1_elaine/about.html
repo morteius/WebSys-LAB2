@@ -8,14 +8,14 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💙</text></svg>">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../../css/style.css">
 </head>
 <body>
 
     <!-- NAV BAR -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="../index.html" class="logo">
+            <a href="../../index.html" class="logo">
                 <i class="fas fa-blog"></i>
             </a>
             
@@ -27,17 +27,20 @@
                         </svg>
                     </a>
                 </li>
-                <li><a href="../index.html"><i class="fas fa-home"></i> Home</a></li>
-                <li><a href="main.htmll"><i class="fas fa-user"></i> My Portfolio</a></li>
+                <li><a href="../../index.html"><i class="fas fa-home"></i> Home</a></li>
                 <li><a href="about.html"><i class="fas fa-info-circle"></i> About Me</a></li>
-                <li><a href="blog/day1.html" class="active"><i class="fas fa-book"></i> My Blog</a></li>
+                <li><a href="../../pages/gallery.html"><i class="fas fa-images"></i> Gallery</a></li>
+                <li><a href="../../pages/student1_elaine/elaine-blog-archive.html"><i class="fas fa-book"></i> My Blog</a></li>
+                <li><a href="main.html"><i class="fas fa-user"></i> My Portfolio</a></li>
                 <li><a href="../student2_cj/main.html"><i class="fas fa-user-friends"></i> CJ's Portfolio</a></li>
             </ul>
             
             <ul class="nav-links">
-                <li><a href="../index.html">Home</a></li>
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="about.html" class="active">About Me</a></li>
+                <li><a href="../../pages/gallery.html">Gallery</a></li>
+                <li><a href="main.html">Elaine</a></li>
                 <li><a href="../student2_cj/main.html">CJ</a></li>
-                <li><a href="../main.html" class="active">Elaine</a></li>
             </ul>
             
             <div class="menu-button" onclick="showSidebar()">
@@ -200,42 +203,23 @@
             <div class="footer-links">
                 <h4>quick links</h4>
                 <ul>
-                    <li><a href="../index.html">Home</a></li>
-                    <li><a href="main.html">Portfolio</a></li>
-                    <li><a href="blog/day1.html">My Blog</a></li>
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="about.html">About Me</a></li>
+                    <li><a href="elaine-blog-archive.html">My Blog</a></li>
+                    <li><a href="../../pages/gallery.html">Gallery</a></li>
+                    <li><a href="../student2_cj/main.html">CJ's Portfolio</a></li>
                 </ul>
             </div>
         </div>
         
         <div class="footer-bottom">
-            <p>&copy; 2026 Elaine Paras · all rights reserved</p>
+            <p>&copy; <span class="copyright-year">1999</span> Elaine Paras · all rights reserved</p>
         </div>
     </footer>
 
     <!-- SCRIPTS -->
-    <script>
-        function showSidebar() {
-            document.getElementById('sidebar').classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-        
-        function hideSidebar() {
-            document.getElementById('sidebar').classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-        
-        // close sidebar when clicking outside
-        document.addEventListener('click', function(event) {
-            const sidebar = document.getElementById('sidebar');
-            const menuButton = document.querySelector('.menu-button');
-            
-            if (sidebar.classList.contains('active') && 
-                !sidebar.contains(event.target) && 
-                !menuButton.contains(event.target)) {
-                hideSidebar();
-            }
-        });
-    </script>
-    <script src="../scripts/bdayCounter.js"></script>
+    <script src="../../scripts/sidebar.js"></script>
+    <script src="../../scripts/bdayCounter.js"></script>
+    <script src="../../scripts/copyright.js"></script>
 </body>
 </html>
