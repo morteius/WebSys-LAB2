@@ -31,7 +31,7 @@
                 <li><a href="#recent"><i class="fas fa-book"></i> Blog</a></li>
                 <li><a href="pages/gallery.html" class="active"><i class="fas fa-images"></i> Gallery</a></li>
                 <li><a href="pages/student1_elaine/main.html"><i class="fas fa-user"></i> Elaine</a></li>
-                <li><a href="student2_cj/main.html"><i class="fas fa-user"></i> CJ</a></li>
+                <li><a href="pages/student2_cj/main.html"><i class="fas fa-user"></i> CJ</a></li>
             </ul>
             
             <ul class="nav-links">
@@ -111,7 +111,7 @@
                 <div class="profile-footer">
                     <a href="pages/student1_elaine/main.html" class="btn-primary"><i class="fas fa-user"></i> Portfolio</a>
                     <a href="pages/student1_elaine/about.html" class="btn-secondary"><i class="fas fa-info-circle"></i> About</a>
-                    <a href="pages/elaine-blog-archive.html" class="btn-secondary"><i class="fas fa-book-open"></i> Blog</a>
+                    <a href="pages/student1_elaine/elaine-blog-archive.html" class="btn-secondary"><i class="fas fa-book-open"></i> Blog</a>
                 </div>
             </div>
 
@@ -140,7 +140,7 @@
                 <div class="profile-footer">
                     <a href="pages/student2_cj/main.html" class="btn-primary"><i class="fas fa-user"></i> Portfolio</a>
                     <a href="pages/student2_cj/about.html" class="btn-secondary"><i class="fas fa-info-circle"></i> About</a>
-                    <a href="pages/cj-blog-archive.html" class="btn-secondary"><i class="fas fa-book-open"></i> Blog</a>
+                    <a href="pages/student2_cj/cj-blog-archive.html" class="btn-secondary"><i class="fas fa-book-open"></i> Blog</a>
                 </div>
             </div>
         </div>
@@ -283,39 +283,7 @@
     </footer>
 
     <!-- SCRIPTS -->
-    <script>
-        function showSidebar() {
-            document.getElementById('sidebar').classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-        
-        function hideSidebar() {
-            document.getElementById('sidebar').classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-        
-        // close sidebar when clicking outside
-        document.addEventListener('click', function(event) {
-            const sidebar = document.getElementById('sidebar');
-            const menuButton = document.querySelector('.menu-button');
-            
-            if (sidebar.classList.contains('active') && 
-                !sidebar.contains(event.target) && 
-                !menuButton.contains(event.target)) {
-                hideSidebar();
-            }
-        });
-        
-        // scroll indicator animation
-        window.addEventListener('scroll', function() {
-            const scrollIndicator = document.querySelector('.scroll-indicator');
-            if (window.scrollY > 100) {
-                scrollIndicator.style.opacity = '0';
-            } else {
-                scrollIndicator.style.opacity = '1';
-            }
-        });
-    </script>
+    <script src="scripts/sidebar.js"></script>
     <script src="scripts/blogCounter.js"></script>
     <script src="scripts/recentPosts.js"></script>
     <script src="scripts/copyright.js"></script>
