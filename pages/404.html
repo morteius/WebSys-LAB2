@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found</title>
+    <meta name="color-scheme" content="light only">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💙</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    
+    <style>
+        .error-container {
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+        
+        .error-code {
+            font-size: 8rem;
+            font-weight: 700;
+            color: var(--baby-300);
+            line-height: 1;
+            margin-bottom: 1rem;
+            text-shadow: 0 5px 15px rgba(137,196,244,0.3);
+        }
+        
+        .error-message {
+            font-size: 2.5rem;
+            color: var(--baby-500);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .error-detail {
+            background: var(--baby-100);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            margin: 2rem 0 3rem;
+            border: 1px solid var(--baby-200);
+            font-weight: 500;
+            color: var(--baby-500);
+            font-size: 1.1rem;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .error-detail i {
+            color: var(--baby-300);
+            margin-right: 0.5rem;
+        }
+        
+        .error-btn {
+            padding: 1rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            transition: var(--transition);
+            background: linear-gradient(145deg, var(--baby-300), var(--baby-400));
+            color: var(--white);
+            box-shadow: 0 5px 15px rgba(137,196,244,0.3);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .error-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(95,158,160,0.4);
+            background: linear-gradient(145deg, var(--baby-400), var(--baby-300));
+        }
+        
+        .error-btn i {
+            font-size: 1.2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .error-code {
+                font-size: 5rem;
+            }
+            .error-message {
+                font-size: 1.8rem;
+            }
+            .error-detail {
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV BAR (MATCHES INDEX) -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">
+                <i class="fas fa-blog"></i>
+            </a>
+            
+            <ul class="sidebar" id="sidebar">
+                <li class="close-btn" onclick="hideSidebar()">
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960" width="28px" fill="#fff">
+                            <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                        </svg>
+                    </a>
+                </li>
+                <li><a href="../index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="../index.html#recent"><i class="fas fa-book"></i> Blog</a></li>
+                <li><a href="gallery.html"><i class="fas fa-images"></i> Gallery</a></li>
+                <li><a href="student1_elaine/main.html"><i class="fas fa-user"></i> Elaine</a></li>
+                <li><a href="student2_cj/main.html"><i class="fas fa-user"></i> CJ</a></li>
+            </ul>
+            
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../index.html#recent">Blog</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="student1_elaine/main.html">Elaine</a></li>
+                <li><a href="student2_cj/main.html">CJ</a></li>
+            </ul>
+            
+            <div class="menu-button" onclick="showSidebar()">
+                <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="#fff">
+                    <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/>
+                </svg>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 404 CONTENT -->
+    <div class="container">
+        <div class="error-container">
+            <div class="error-code">404</div>
+            <div class="error-message">PAGE NOT FOUND</div>
+            
+            <div class="error-detail" id="errorPath">
+                <i class="fas fa-exclamation-circle"></i> 
+                Checking page...
+            </div>
+            
+            <a href="../index.html" class="error-btn">
+                <i class="fas fa-home"></i> BACK TO HOME
+            </a>
+        </div>
+    </div>
+
+    <!-- FOOTER (MATCHES INDEX) -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <h3>CJ & Elaine</h3>
+                <p>two students, two stories, one blog.</p>
+            </div>
+            
+            <div class="footer-social">
+                <h4>connect with us</h4>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/mortieus" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/morteius/" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="https://github.com/morteius" class="social-icon"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h4>quick links</h4>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../index.html#recent">Blog</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="student1_elaine/main.html">Elaine</a></li>
+                    <li><a href="student2_cj/main.html">CJ</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; <span class="copyright-year">1999</span> Duo Blog · all rights reserved</p>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script>
+        // SHOW WHICH PAGE WAS NOT FOUND
+        const brokenPath = window.location.pathname;
+        const fileName = brokenPath.split('/').pop() || 'page';
+        const fullPath = brokenPath.split('/').slice(-2).join('/');
+        document.getElementById('errorPath').innerHTML = 
+            `<i class="fas fa-exclamation-circle"></i> ${fullPath} could not be found`;
+    
+    </script>
+</body>
+</html>

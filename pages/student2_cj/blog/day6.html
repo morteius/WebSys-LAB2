@@ -8,15 +8,15 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💙</text></svg>">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="../../style.css">
-    <link rel="stylesheet" href="../../blog.css">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../../../css/blog.css">
 </head>
 <body>
 
     <!-- NAV BAR -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="../../index.html" class="logo">
+            <a href="../../../index.html" class="logo">
                 <i class="fas fa-blog"></i>
             </a>
             
@@ -28,17 +28,19 @@
                         </svg>
                     </a>
                 </li>
-                <li><a href="../../index.html"><i class="fas fa-home"></i> Home</a></li>
-                <li><a href="../main.html"><i class="fas fa-user"></i> My Portfolio</a></li>
-                <li><a href="../about.html"><i class="fas fa-info-circle"></i> About Me</a></li>
-                <li><a href="day1.html"><i class="fas fa-book"></i> My Blog</a></li>
-                <li><a href="../../student1_elaine/main.html"><i class="fas fa-user-friends"></i> Elaine's Portfolio</a></li>
+                <li><a href="../../../index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="../cj-blog-archive.html" class="active"><i class="fas fa-book"></i> My Blog</a></li>
+                <li><a href="../../../pages/gallery.html"><i class="fas fa-images"></i> Gallery</a></li>
+                <li><a href="../../student1_elaine/main.html"><i class="fas fa-user"></i> Elaine</a></li>
+                <li><a href="../../student2_cj/main.html"><i class="fas fa-user"></i> CJ</a></li>
             </ul>
             
             <ul class="nav-links">
-                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../../index.html">Home</a></li>
+                <li><a href="../cj-blog-archive.html">My Blog</a></li>
+                <li><a href="../../../pages/gallery.html">Gallery</a></li>
                 <li><a href="../../student1_elaine/main.html">Elaine</a></li>
-                <li><a href="../main.html">CJ</a></li>
+                <li><a href="../../student2_cj/main.html">CJ</a></li>
             </ul>
             
             <div class="menu-button" onclick="showSidebar()">
@@ -57,7 +59,7 @@
             </a>
             <h1>Day 6: Sudden Swimming</h1>
             <div class="blog-post-meta">
-                <span><i class="fas fa-calendar"></i> February 25, 2026 · Wednesday</span>
+                <span><i class="fas fa-calendar"></i> February 25, 2026</span>
                 <span><i class="fas fa-user"></i> CJ Mape</span>
                 <span><i class="fas fa-clock"></i> 7 min read</span>
                 <span><i class="fas fa-tag"></i> swimming, friends, memories</span>
@@ -98,6 +100,16 @@
                     We arrived around 11am and immediately dug into lunch. After eating, we waited a bit to 
                     let the food digest before hitting the pool. Good food, good company — off to a great start.
                 </p>
+
+                <!-- IMAGE CARD -->
+                <div class="blog-image-card">
+                    <img src="../../../images/blogPics/day6_lunch.jpg" alt="CJ and Elaine swimming">
+                    <div class="blog-image-caption">
+                        <i class="fas fa-utensils"></i>
+                        <span>yummerz</span>
+                    </div>
+                </div>
+                
                 
                 <h2>Pool Time & Teaching Elaine</h2>
                 
@@ -108,9 +120,9 @@
                     water. She was trying her best and honestly? I was proud of her for facing that fear.
                 </p>
                 
-                <!-- FIRST IMAGE - ELAINE AND CJ SWIMMING -->
+                <!-- IMAGE CARD -->
                 <div class="blog-image-card">
-                    <img src="../../images/blogPics/day6_usSwimming.jpg" alt="CJ and Elaine swimming">
+                    <img src="../../../images/blogPics/day6_usSwimming.jpg" alt="CJ and Elaine swimming">
                     <div class="blog-image-caption">
                         <i class="fas fa-swimmer"></i>
                         <span>wehhh ikaw ah</span>
@@ -138,9 +150,9 @@
                     Those are the days you'll look back on and smile.
                 </p>
                 
-                <!-- SECOND IMAGE - FRIEND GROUP PHOTO -->
+                <!-- IMAGE CARD -->
                 <div class="blog-image-card">
-                    <img src="../../images/blogPics/day6_groupPhoto.jpeg" alt="Group pic">
+                    <img src="../../../images/blogPics/day6_groupPhoto.jpeg" alt="Group pic">
                     <div class="blog-image-caption">
                         <i class="fas fa-users"></i>
                         <span>Carlos & Friends</span>
@@ -212,40 +224,23 @@
             <div class="footer-links">
                 <h4>quick links</h4>
                 <ul>
-                    <li><a href="../../index.html">Home</a></li>
-                    <li><a href="../main.html">Portfolio</a></li>
+                    <li><a href="../../../index.html">Home</a></li>
                     <li><a href="../about.html">About Me</a></li>
+                    <li><a href="../cj-blog-archive.html">My Blog</a></li>
+                    <li><a href="../../../pages/gallery.html">Gallery</a></li>
+                    <li><a href="../../student1_elaine/main.html">Elaine's Portfolio</a></li>
                 </ul>
             </div>
         </div>
         
         <div class="footer-bottom">
-            <p>&copy; 2026 CJ Mape · all rights reserved</p>
+            <p>&copy; <span class="copyright-year">1999</span> CJ Mape · all rights reserved</p>
         </div>
     </footer>
 
     <!-- SCRIPTS -->
-    <script>
-        function showSidebar() {
-            document.getElementById('sidebar').classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-        
-        function hideSidebar() {
-            document.getElementById('sidebar').classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-        
-        document.addEventListener('click', function(event) {
-            const sidebar = document.getElementById('sidebar');
-            const menuButton = document.querySelector('.menu-button');
-            
-            if (sidebar.classList.contains('active') && 
-                !sidebar.contains(event.target) && 
-                !menuButton.contains(event.target)) {
-                hideSidebar();
-            }
-        });
-    </script>
+    <script src="../../../scripts/sidebar.js"></script>
+    <script src="../../../scripts/copyright.js"></script>
+
 </body>
 </html>

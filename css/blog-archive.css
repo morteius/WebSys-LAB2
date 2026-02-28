@@ -134,6 +134,38 @@
     scrollbar-color: var(--baby-300) var(--baby-100);
 }
 
+.archive-back-container {
+    max-width: 800px;
+    margin: 2rem auto 0;
+    padding: 0 2rem;
+}
+
+.archive-back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.8rem 2rem;
+    background: linear-gradient(145deg, var(--baby-300), var(--baby-400));
+    color: white;
+    text-decoration: none;
+    border-radius: 40px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: var(--transition);
+    border: 1px solid rgba(255,255,255,0.2);
+    box-shadow: 0 5px 15px rgba(137,196,244,0.3);
+}
+
+.archive-back-btn:hover {
+    transform: translateX(-5px);
+    box-shadow: 0 10px 25px rgba(95,158,160,0.4);
+    background: linear-gradient(145deg, var(--baby-400), var(--baby-300));
+}
+
+.archive-back-btn i {
+    font-size: 1rem;
+}
+
 .archive-list-item {
     display: flex;
     align-items: center;

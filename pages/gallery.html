@@ -8,8 +8,8 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💙</text></svg>">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="gallery.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/gallery.css">
 </head>
 <body class="gallery-page">
 
@@ -28,14 +28,14 @@
                         </svg>
                     </a>
                 </li>
-                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="../index.html"><i class="fas fa-home"></i> Home</a></li>
                 <li><a href="gallery.html" class="active"><i class="fas fa-images"></i> Gallery</a></li>
                 <li><a href="student1_elaine/main.html"><i class="fas fa-user"></i> Elaine</a></li>
                 <li><a href="student2_cj/main.html"><i class="fas fa-user"></i> CJ</a></li>
             </ul>
             
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="../index.html">Home</a></li>
                 <li><a href="gallery.html" class="active">Gallery</a></li>
                 <li><a href="student1_elaine/main.html">Elaine</a></li>
                 <li><a href="student2_cj/main.html">CJ</a></li>
@@ -112,7 +112,7 @@
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-logo">
-                <h3>CJ & Elaine</h3>
+                <h3>Duo Blog</h3>
                 <p>two students, two stories, one blog.</p>
             </div>
             
@@ -128,7 +128,7 @@
             <div class="footer-links">
                 <h4>quick links</h4>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="../index.html">Home</a></li>
                     <li><a href="gallery.html">Gallery</a></li>
                     <li><a href="student1_elaine/main.html">Elaine</a></li>
                     <li><a href="student2_cj/main.html">CJ</a></li>
@@ -137,34 +137,13 @@
         </div>
         
         <div class="footer-bottom">
-            <p>&copy; 2026 CJ & Elaine · duo project · all rights reserved</p>
+            <p>&copy; <span class="copyright-year">1999</span> duo project · all rights reserved</p>
         </div>
     </footer>
 
     <!-- SCRIPTS -->
-    <script src="scripts/image-list.js"></script>
-    <script src="scripts/gallery.js"></script>
-    <script>
-        function showSidebar() {
-            document.getElementById('sidebar').classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-        
-        function hideSidebar() {
-            document.getElementById('sidebar').classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-        
-        document.addEventListener('click', function(event) {
-            const sidebar = document.getElementById('sidebar');
-            const menuButton = document.querySelector('.menu-button');
-            
-            if (sidebar.classList.contains('active') && 
-                !sidebar.contains(event.target) && 
-                !menuButton.contains(event.target)) {
-                hideSidebar();
-            }
-        });
-    </script>
+    <script src="../scripts/image-list.js"></script>
+    <script src="../scripts/gallery.js"></script>
+    <script src="../scripts/sidebar.js"></script>
 </body>
 </html>
