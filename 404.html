@@ -8,7 +8,7 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💙</text></svg>">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/WebSys-LAB2/css/style.css">
     
     <style>
         .error-container {
@@ -96,10 +96,9 @@
 </head>
 <body>
 
-    <!-- NAVBAR -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="index.html" class="logo">
+            <a href="/WebSys-LAB2/index.html" class="logo">
                 <i class="fas fa-blog"></i>
             </a>
             
@@ -111,19 +110,19 @@
                         </svg>
                     </a>
                 </li>
-                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-                <li><a href="index.html#recent"><i class="fas fa-book"></i> Blog</a></li>
-                <li><a href="pages/gallery.html"><i class="fas fa-images"></i> Gallery</a></li>
-                <li><a href="pages/student1_elaine/main.html"><i class="fas fa-user"></i> Elaine</a></li>
-                <li><a href="pages/student2_cj/main.html"><i class="fas fa-user"></i> CJ</a></li>
+                <li><a href="/WebSys-LAB2/index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="/WebSys-LAB2/index.html#recent"><i class="fas fa-book"></i> Blog</a></li>
+                <li><a href="/WebSys-LAB2/pages/gallery.html"><i class="fas fa-images"></i> Gallery</a></li>
+                <li><a href="/WebSys-LAB2/pages/student1_elaine/main.html"><i class="fas fa-user"></i> Elaine</a></li>
+                <li><a href="/WebSys-LAB2/pages/student2_cj/main.html"><i class="fas fa-user"></i> CJ</a></li>
             </ul>
             
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="index.html#recent">Blog</a></li>
-                <li><a href="pages/gallery.html">Gallery</a></li>
-                <li><a href="pages/student1_elaine/main.html">Elaine</a></li>
-                <li><a href="pages/student2_cj/main.html">CJ</a></li>
+                <li><a href="/WebSys-LAB2/index.html">Home</a></li>
+                <li><a href="/WebSys-LAB2/index.html#recent">Blog</a></li>
+                <li><a href="/WebSys-LAB2/pages/gallery.html">Gallery</a></li>
+                <li><a href="/WebSys-LAB2/pages/student1_elaine/main.html">Elaine</a></li>
+                <li><a href="/WebSys-LAB2/pages/student2_cj/main.html">CJ</a></li>
             </ul>
             
             <div class="menu-button" onclick="showSidebar()">
@@ -145,13 +144,12 @@
                 Checking page...
             </div>
             
-            <a href="../index.html" class="error-btn">
+            <a href="/WebSys-LAB2/index.html" class="error-btn">
                 <i class="fas fa-home"></i> BACK TO HOME
             </a>
         </div>
     </div>
 
-    <!-- FOOTER (MATCHES INDEX) -->
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-logo">
@@ -171,11 +169,11 @@
             <div class="footer-links">
                 <h4>quick links</h4>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="index.html#recent">Blog</a></li>
-                    <li><a href="pages/gallery.html">Gallery</a></li>
-                    <li><a href="pages/student1_elaine/main.html">Elaine</a></li>
-                    <li><a href="pages/student2_cj/main.html">CJ</a></li>
+                    <li><a href="/WebSys-LAB2/index.html">Home</a></li>
+                    <li><a href="/WebSys-LAB2/index.html#recent">Blog</a></li>
+                    <li><a href="/WebSys-LAB2/pages/gallery.html">Gallery</a></li>
+                    <li><a href="/WebSys-LAB2/pages/student1_elaine/main.html">Elaine</a></li>
+                    <li><a href="/WebSys-LAB2/pages/student2_cj/main.html">CJ</a></li>
                 </ul>
             </div>
         </div>
@@ -185,14 +183,24 @@
         </div>
     </footer>
 
-    <!-- SCRIPTS -->
-    <script src="scripts/sidebar.js"></script>
+    <script src="/WebSys-LAB2/scripts/sidebar.js"></script>
+    <script src="/WebSys-LAB2/scripts/copyright.js"></script>
     <script>
         const brokenPath = window.location.pathname;
         const fileName = brokenPath.split('/').pop() || 'page';
         const fullPath = brokenPath.split('/').slice(-2).join('/');
         document.getElementById('errorPath').innerHTML = 
             `<i class="fas fa-exclamation-circle"></i> ${fullPath} could not be found`;
+        
+        function showSidebar() {
+            document.getElementById('sidebar').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function hideSidebar() {
+            document.getElementById('sidebar').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
     </script>
 </body>
 </html>
