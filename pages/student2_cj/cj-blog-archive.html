@@ -8,15 +8,15 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💙</text></svg>">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="../css/blog-archive.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/blog-archive.css">
 </head>
 <body class="archive-page">
 
-    <!-- NAV BAR -->
+    <!-- NAVBAR -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="../index.html" class="logo">
+            <a href="../../index.html" class="logo">
                 <i class="fas fa-blog"></i>
             </a>
             
@@ -28,17 +28,17 @@
                         </svg>
                     </a>
                 </li>
-                <li><a href="../index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="../../index.html"><i class="fas fa-home"></i> Home</a></li>
                 <li><a href="cj-blog-archive.html" class="active"><i class="fas fa-book"></i> My Blog</a></li>
-                <li><a href="../gallery.html"><i class="fas fa-images"></i> Gallery</a></li>
+                <li><a href="../../pages/gallery.html"><i class="fas fa-images"></i> Gallery</a></li>
                 <li><a href="../student1_elaine/main.html"><i class="fas fa-user"></i> Elaine</a></li>
                 <li><a href="../student2_cj/main.html"><i class="fas fa-user"></i> CJ</a></li>
             </ul>
             
             <ul class="nav-links">
-                <li><a href="../index.html">Home</a></li>
+                <li><a href="../../index.html">Home</a></li>
                 <li><a href="cj-blog-archive.html" class="active">My Blog</a></li>
-                <li><a href="../gallery.html">Gallery</a></li>
+                <li><a href="../../pages/gallery.html">Gallery</a></li>
                 <li><a href="../student1_elaine/main.html">Elaine</a></li>
                 <li><a href="../student2_cj/main.html">CJ</a></li>
             </ul>
@@ -51,6 +51,7 @@
         </div>
     </nav>
 
+    <!-- ARCHIVE HEADER -->
     <div class="archive-header-simple">
         <h1>CJ's Blog Archive</h1>
         <p>all my stories, in one place</p>
@@ -58,6 +59,12 @@
             <span><i class="fas fa-book-open"></i> <span id="postCount">0</span> posts</span>
             <span><i class="fas fa-calendar"></i> latest: <span id="latestDate">—</span></span>
         </div>
+    </div>
+
+    <div class="archive-back-container">
+        <a href="../student2_cj/main.html" class="archive-back-btn">
+            <i class="fas fa-arrow-left"></i> BACK TO PORTFOLIO
+        </a>
     </div>
 
     <!-- SEARCH BAR -->
@@ -98,25 +105,28 @@
             <div class="footer-links">
                 <h4>quick links</h4>
                 <ul>
-                    <li><a href="../index.html">Home</a></li>
-                    <li><a href="../gallery.html">Gallery</a></li>
-                    <li><a href="../student1_elaine/main.html">Elaine</a></li>
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="about.html">About Me</a></li>
+                    <li><a href="cj-blog-archive.html">My Blog</a></li>
+                    <li><a href="../../pages/gallery.html">Gallery</a></li>
+                    <li><a href="../student1_elaine/main.html">Elaine's Portfolio</a></li>
                 </ul>
             </div>
         </div>
         
         <div class="footer-bottom">
-            <p>&copy; 2026 CJ Mape · all rights reserved</p>
+            <p>&copy; <span class="copyright-year">1999</span> CJ Mape · all rights reserved</p>
         </div>
     </footer>
 
     <!-- SCRIPTS -->
-    <script src="../scripts/sidebar.js"></script>
-    <script src="../scripts/blogArchive.js"></script>
+    <script src="../../scripts/sidebar.js"></script>
+    <script src="../../scripts/blogArchive.js"></script>
+    <script src="../../scripts/copyright.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             if (typeof loadBlogArchive === 'function') {
-                loadBlogArchive('elaine').then(() => {
+                loadBlogArchive('cj').then(() => {
                     if (typeof setupSearch === 'function') {
                         setupSearch();
                     }

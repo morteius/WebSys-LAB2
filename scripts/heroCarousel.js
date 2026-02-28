@@ -1,4 +1,4 @@
-console.log('🖼️ HERO CAROUSEL LOADED');
+console.log('HERO CAROUSEL LOADED');
 
 class HeroCarousel {
     constructor() {
@@ -28,6 +28,8 @@ class HeroCarousel {
     
     init() {
         this.heroImage.src = this.images[0];
+        this.heroImage.style.transition = 'opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1)';
+        this.heroImage.style.opacity = '1';
         
         // FADE OVERLAY
         const overlay = document.createElement('div');
@@ -40,16 +42,20 @@ class HeroCarousel {
             height: 100%;
             background: var(--baby-500);
             opacity: 0;
-            transition: opacity 1s ease;
+            transition: opacity 1.5s cubic-bezier(0.4, 0, 0.2, 1);
             pointer-events: none;
             z-index: 5;
         `;
         this.imageWrapper.style.position = 'relative';
+        this.imageWrapper.style.overflow = 'hidden';
         this.imageWrapper.appendChild(overlay);
         this.overlay = overlay;
         
+        // NEXT IMAGE PRELOADER
+        this.nextImagePreloader = new Image();
+        
         // START
-        this.startCarousel();
+        setTimeout(() => this.startCarousel(), 500);
     }
     
     startCarousel() {
@@ -57,17 +63,25 @@ class HeroCarousel {
     }
     
     nextImage() {
-        // FADE TO BLACK
-        this.overlay.style.opacity = '0.8';
+        // PRELOAD NEXT IMAGE
+        const nextIndex = (this.currentIndex + 1) % this.images.length;
+        this.nextImagePreloader.src = this.images[nextIndex];
+        
+        // FADE OUT CURRENT
+        this.overlay.style.opacity = '0.7';
+        this.heroImage.style.opacity = '0.3';
         
         setTimeout(() => {
             // CHANGE IMAGE
-            this.currentIndex = (this.currentIndex + 1) % this.images.length;
+            this.currentIndex = nextIndex;
             this.heroImage.src = this.images[this.currentIndex];
             
-            // FADE BACK IN
-            this.overlay.style.opacity = '0';
-        }, 500);
+            // FADE IN NEW
+            setTimeout(() => {
+                this.overlay.style.opacity = '0';
+                this.heroImage.style.opacity = '1';
+            }, 50);
+        }, 600);
     }
 }
 
