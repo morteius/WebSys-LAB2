@@ -2,23 +2,13 @@ async function countBlogPosts() {
     const cjPosts = [];
     const elainePosts = [];
     
-    const pathParts = window.location.pathname.split('/');
-    const repoName = pathParts[1];
-    
     let day = 1;
     while (true) {
         try {
-            let response = await fetch(`/${repoName}/student2_cj/blog/day${day}.html`, { 
+            const response = await fetch(`/WebSys-LAB2/pages/student2_cj/blog/day${day}.html`, { 
                 method: 'HEAD',
                 cache: 'no-cache'
             });
-            
-            if (!response.ok) {
-                response = await fetch(`student2_cj/blog/day${day}.html`, { 
-                    method: 'HEAD',
-                    cache: 'no-cache'
-                });
-            }
             
             if (response.ok) {
                 cjPosts.push(`day${day}.html`);
@@ -34,17 +24,10 @@ async function countBlogPosts() {
     day = 1;
     while (true) {
         try {
-            let response = await fetch(`/${repoName}/student1_elaine/blog/day${day}.html`, { 
+            const response = await fetch(`/WebSys-LAB2/pages/student1_elaine/blog/day${day}.html`, { 
                 method: 'HEAD',
                 cache: 'no-cache'
             });
-            
-            if (!response.ok) {
-                response = await fetch(`student1_elaine/blog/day${day}.html`, { 
-                    method: 'HEAD',
-                    cache: 'no-cache'
-                });
-            }
             
             if (response.ok) {
                 elainePosts.push(`day${day}.html`);

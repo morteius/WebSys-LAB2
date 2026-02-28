@@ -2,12 +2,13 @@ console.log('📚 BLOG ARCHIVE LOADED');
 
 let currentPosts = [];
 let filteredPosts = [];
+const baseUrl = '/WebSys-LAB2';
 
 async function fetchBlogPost(student, day) {
     try {
-        const baseUrl = '/WebSys-LAB2';
         const studentPath = student === 'cj' ? 'student2_cj' : 'student1_elaine';
-        const url = `${baseUrl}/${studentPath}/blog/day${day}.html`;
+        // FIXED PATH - added /pages/
+        const url = `${baseUrl}/pages/${studentPath}/blog/day${day}.html`;
         
         const response = await fetch(url);
         if (!response.ok) return null;
@@ -33,7 +34,8 @@ async function fetchBlogPost(student, day) {
             day,
             title,
             date,
-            url: `${baseUrl}/${studentPath}/blog/day${day}.html`
+            // FIXED PATH - added /pages/
+            url: `${baseUrl}/pages/${studentPath}/blog/day${day}.html`
         };
     } catch (error) {
         return null;
@@ -49,7 +51,6 @@ async function loadBlogArchive(person) {
     
     if (!archiveList) return;
     
-    // CREATE NEW STRUCTURE IF NEEDED
     if (!archiveList.querySelector('.archive-list-rows')) {
         archiveList.innerHTML = '<div class="archive-list-rows"></div>';
     }
@@ -78,7 +79,6 @@ async function loadBlogArchive(person) {
             if (day > 9999) break;
         }
         
-        // SORT BY DAY (ASCENDING - 1,2,3,4...)
         currentPosts.sort((a, b) => a.day - b.day);
         filteredPosts = [...currentPosts];
         
