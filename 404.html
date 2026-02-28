@@ -96,10 +96,10 @@
 </head>
 <body>
 
-    <!-- NAV BAR (MATCHES INDEX) -->
+    <!-- NAVBAR -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="../index.html" class="logo">
+            <a href="index.html" class="logo">
                 <i class="fas fa-blog"></i>
             </a>
             
@@ -111,19 +111,19 @@
                         </svg>
                     </a>
                 </li>
-                <li><a href="../index.html"><i class="fas fa-home"></i> Home</a></li>
-                <li><a href="../index.html#recent"><i class="fas fa-book"></i> Blog</a></li>
-                <li><a href="gallery.html"><i class="fas fa-images"></i> Gallery</a></li>
-                <li><a href="student1_elaine/main.html"><i class="fas fa-user"></i> Elaine</a></li>
-                <li><a href="student2_cj/main.html"><i class="fas fa-user"></i> CJ</a></li>
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="index.html#recent"><i class="fas fa-book"></i> Blog</a></li>
+                <li><a href="pages/gallery.html"><i class="fas fa-images"></i> Gallery</a></li>
+                <li><a href="pages/student1_elaine/main.html"><i class="fas fa-user"></i> Elaine</a></li>
+                <li><a href="pages/student2_cj/main.html"><i class="fas fa-user"></i> CJ</a></li>
             </ul>
             
             <ul class="nav-links">
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="../index.html#recent">Blog</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="student1_elaine/main.html">Elaine</a></li>
-                <li><a href="student2_cj/main.html">CJ</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#recent">Blog</a></li>
+                <li><a href="pages/gallery.html">Gallery</a></li>
+                <li><a href="pages/student1_elaine/main.html">Elaine</a></li>
+                <li><a href="pages/student2_cj/main.html">CJ</a></li>
             </ul>
             
             <div class="menu-button" onclick="showSidebar()">
@@ -171,11 +171,11 @@
             <div class="footer-links">
                 <h4>quick links</h4>
                 <ul>
-                    <li><a href="../index.html">Home</a></li>
-                    <li><a href="../index.html#recent">Blog</a></li>
-                    <li><a href="gallery.html">Gallery</a></li>
-                    <li><a href="student1_elaine/main.html">Elaine</a></li>
-                    <li><a href="student2_cj/main.html">CJ</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#recent">Blog</a></li>
+                    <li><a href="pages/gallery.html">Gallery</a></li>
+                    <li><a href="pages/student1_elaine/main.html">Elaine</a></li>
+                    <li><a href="pages/student2_cj/main.html">CJ</a></li>
                 </ul>
             </div>
         </div>
@@ -186,14 +186,13 @@
     </footer>
 
     <!-- SCRIPTS -->
+    <script src="scripts/sidebar.js"></script>
     <script>
-        // SHOW WHICH PAGE WAS NOT FOUND
         const brokenPath = window.location.pathname;
         const fileName = brokenPath.split('/').pop() || 'page';
         const fullPath = brokenPath.split('/').slice(-2).join('/');
         document.getElementById('errorPath').innerHTML = 
             `<i class="fas fa-exclamation-circle"></i> ${fullPath} could not be found`;
-    
     </script>
 </body>
 </html>
