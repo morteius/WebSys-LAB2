@@ -1201,6 +1201,165 @@ body {
 }
 
 /* RESPONSIVE */
+@media (max-width: 480px) {
+    .blog-image-card {
+        margin: 1.5rem 0;
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+    }
+    
+    .blog-image-card img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16/9;
+        object-fit: cover;
+    }
+    
+    .blog-image-caption {
+        padding: 0.8rem 1rem;
+        font-size: 0.85rem;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    
+    .blog-image-caption i {
+        font-size: 1rem;
+    }
+    
+    .blog-image-caption span {
+        word-break: break-word;
+        flex: 1;
+    }
+}
+
+@media (max-width: 480px) {
+    .profiles-grid {
+        grid-template-columns: 1fr;
+        padding: 0 0.5rem;
+    }
+    
+    .profile-card {
+        padding: 1.5rem 1rem;
+    }
+    
+    .profile-footer {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .profile-footer .btn-primary,
+    .profile-footer .btn-secondary {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+    
+    .recent-grid {
+        gap: 1rem;
+    }
+    
+    .recent-item {
+        padding: 0.8rem 1rem;
+    }
+    
+    .recent-info {
+        max-width: 70%;
+    }
+    
+    .recent-title {
+        font-size: 0.9rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    
+    .recent-date {
+        font-size: 0.75rem;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+    
+    .cta-buttons .btn-primary {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .stats-container {
+        gap: 0.8rem;
+    }
+    
+    .stat-card {
+        padding: 1rem;
+    }
+    
+    .stat-number {
+        font-size: 1.8rem;
+    }
+    
+    .stat-label {
+        font-size: 0.7rem;
+    }
+    
+    .hero-image img {
+        height: 250px;
+    }
+    
+    .hero-title {
+        font-size: 1.8rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+    }
+    
+    .hero-btn-primary {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 360px) {
+    .profile-card {
+        padding: 1rem;
+    }
+    
+    .profile-avatar {
+        width: 90px;
+        height: 90px;
+        font-size: 2.5rem;
+    }
+    
+    .profile-header h3 {
+        font-size: 1.3rem;
+    }
+    
+    .tag {
+        font-size: 0.7rem;
+        padding: 0.2rem 0.6rem;
+    }
+    
+    .recent-title {
+        max-width: 150px;
+    }
+    
+    .recent-item i {
+        font-size: 0.9rem;
+    }
+    
+    .blog-image-caption {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
 @media (max-width: 768px) {
     .nav-links {
         display: none;
