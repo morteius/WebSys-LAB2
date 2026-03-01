@@ -895,6 +895,7 @@ body {
 .container {
     max-width: 1000px;
     margin: 0 auto;
+    padding: 0 1rem;
 }
 
 .about-grid {
@@ -934,20 +935,28 @@ body {
 .info-item {
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
     padding-bottom: 0.5rem;
     border-bottom: 1px dashed var(--baby-100);
+    gap: 1rem;
 }
 
 .info-label {
     color: var(--baby-400);
     font-weight: 500;
     text-transform: uppercase;
-    font-size: 0.85rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+    min-width: 70px;
+    flex-shrink: 0;
 }
 
 .info-value {
     color: var(--baby-500);
     font-weight: 500;
+    font-size: 0.9rem;
+    text-align: right;
+    word-break: break-word;
 }
 
 .hobbies-grid {
@@ -1034,29 +1043,6 @@ body {
 .center-button {
     text-align: center;
     margin-top: 2rem;
-}
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-    .about-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .about-preview-buttons {
-        flex-direction: column;
-    }
-    
-    .profile-blogs-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .hobbies-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .profile-hero-name {
-        font-size: 2rem;
-    }
 }
 
 /* STATS */
@@ -1260,6 +1246,43 @@ body {
     .profile-footer {
         flex-wrap: wrap;
     }
+    
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .about-preview-buttons {
+        flex-direction: column;
+    }
+    
+    .profile-blogs-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .hobbies-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .profile-hero-name {
+        font-size: 2rem;
+    }
+    
+    .info-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.3rem;
+    }
+    
+    .info-label {
+        min-width: auto;
+        font-size: 0.7rem;
+    }
+    
+    .info-value {
+        text-align: left;
+        font-size: 0.9rem;
+        width: 100%;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1288,5 +1311,13 @@ body {
     
     .social-icons {
         justify-content: center;
+    }
+    
+    .info-item {
+        gap: 0.2rem;
+    }
+    
+    .info-value {
+        font-size: 0.85rem;
     }
 }
