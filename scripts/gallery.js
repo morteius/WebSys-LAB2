@@ -1,4 +1,4 @@
-console.log('📸 GALLERY SCRIPT LOADED');
+console.log('GALLERY SCRIPT LOADED');
 
 let currentImages = [];
 let filteredImages = [];

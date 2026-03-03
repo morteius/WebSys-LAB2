@@ -1,4 +1,4 @@
-console.log('📚 BLOG ARCHIVE LOADED');
+console.log('BLOG ARCHIVE LOADED');
 
 let currentPosts = [];
 let filteredPosts = [];
